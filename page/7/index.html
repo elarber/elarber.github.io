@@ -1,0 +1,1072 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="全易">
+  <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+  
+    <meta name="description" content="记录技术难点、常见bug攻克，分享经验，共赢">
+<meta property="og:type" content="website">
+<meta property="og:title" content="全易">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/page/7/index.html">
+<meta property="og:site_name" content="全易">
+<meta property="og:description" content="记录技术难点、常见bug攻克，分享经验，共赢">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="全易">
+<meta property="article:tag" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>全易</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>全易</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-stack-overflow-fill"></i>
+                <span>开源项目</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
+                    
+                    <span>vue2项目初始化开发模板</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init_vue3" target="_self">
+                    
+                    <span>uniapp-vue3项目初始化开发模板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="记录、分享、共赢"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/1a247f1e65ab/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue vue-router 嵌套路由">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/1a247f1e65ab/" target="_self">
+          vue vue-router 嵌套路由
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/1a247f1e65ab/" target="_self">
+        <div>
+          在router目录下的index.js路由配置文件里使用children嵌套路由，如下：嵌套路由配置好，就需要在嵌套的页面展示被嵌套的页面了router-view 为什么写这？因为刚在配置路由的时候是在child下配置的呀。效果如下：到此有个问题来了，点击进入child页面时（图2）是不是发现右侧时空白的？此时是不是需要默认进这个页面时右侧显示成图3那样呢？那么就需要重定向一下了。让一进child
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/45782f680f7c/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 使用addRoutes()合并动态有权路由">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/45782f680f7c/" target="_self">
+          vue 使用addRoutes()合并动态有权路由
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/45782f680f7c/" target="_self">
+        <div>
+          给出默认的静态路由 登陆成功后调用获取有权路由接口：   在调用refresh接口时处理返回数据   合并有权路由调用vueX的setRouters函数合并有权路由：  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758// 设置权限路
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/129c6f9083be/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 动态组件：component标签">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/129c6f9083be/" target="_self">
+          vue 动态组件：component标签
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/129c6f9083be/" target="_self">
+        <div>
+          &lt;component :is=&quot;组件&quot; /&gt;  引入：12345678910111213141516import NewUsers from &quot;./panels/new-users&quot;;data () &#123;  return &#123;    NewUsers  &#125;&#125;   使用：1&lt;component :is=
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/c0ee7aa9ab5a/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 在生产环境清除【console.log】【console.error】">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/c0ee7aa9ab5a/" target="_self">
+          vue 在生产环境清除【console.log】【console.error】
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/c0ee7aa9ab5a/" target="_self">
+        <div>
+          vue init webpack的项目：在build/webpack.prod.conf.js文件里改成这样一段代码： 1234567891011121314uglifyOptions: &#123;  mangle: &#123;  	safari10: true  &#125;,  compress: &#123;    warnings: false,    drop_debugger: t
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/ba998e986f29/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 导航守卫配置">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/ba998e986f29/" target="_self">
+          vue 导航守卫配置
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/ba998e986f29/" target="_self">
+        <div>
+          全局导航守卫 123456789101112131415161718192021222324252627/* -------------------------------- 导航守卫 -------------------------------- */import router from &#x27;./index&#x27;;// 全局前置守卫router.beforeEach((to, f
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/0ff384c66fee/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 性能优化：gzip编译压缩">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/0ff384c66fee/" target="_self">
+          vue 性能优化：gzip编译压缩
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/0ff384c66fee/" target="_self">
+        <div>
+          安装1.1.2版本的compression-webpack-plugin插件：高版本会报错 1npm install --save-dev compression-webpack-plugin@1.1.2  打开&#x3D;&#x3D;config&#x2F;index.js&#x3D;&#x3D;文件，找到build对象中的productionGzip属性，值改成true：  打开&#x3D;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/4b4ba226ab09/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue 滚动到指定元素的底部">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/4b4ba226ab09/" target="_self">
+          vue 滚动到指定元素的底部
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/4b4ba226ab09/" target="_self">
+        <div>
+          自定一个滚动指令：v-scroll 12345678910directives: &#123;    scroll: &#123;      inserted(el) &#123;        el.scrollIntoView(&#123;          block: &quot;end&quot;,          behavior: &quot;smooth&quot;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/565e736b4e7e/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue-cli中 使用axios调接口数据交互">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/565e736b4e7e/" target="_self">
+          vue-cli中 使用axios调接口数据交互
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/565e736b4e7e/" target="_self">
+        <div>
+          首先要安装了axiosnpm install axios --save 如下图：然后再main.js里配置下axios 12import Axios from &#x27;axios&#x27;Vue.prototype.$axios=Axios  如下图：至此请求插件安装配置完毕下面获取下数据看看因为原生的样式太丑，我就用element了，那这样就需要安装和配置下element了，如下： 1np
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/16b529f820b7/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue2计算属性:computed和侦听属性:watch">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/16b529f820b7/" target="_self">
+          vue2计算属性:computed和侦听属性:watch
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/16b529f820b7/" target="_self">
+        <div>
+          computed计算属性：直接在视图层逻辑运算： 1234567891011121314151617181920&lt;template&gt;  &lt;view class=&quot;test&quot;&gt;    &#123;&#123; text.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;  &lt;/v
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/e0022cdaa6c5/" target="_self">
+          <img src="/img/articles/" srcset="/img/loading.gif" lazyload alt="vue2 mixin混入【封装全局表格数据重置摁钮】">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/e0022cdaa6c5/" target="_self">
+          vue2 mixin混入【封装全局表格数据重置摁钮】
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/e0022cdaa6c5/" target="_self">
+        <div>
+          需求说明 基本上每个页面都有筛选数据的功能那么每个页面都写一遍重置按钮的方法吗？那就太臃肿了此处有更优方案，使用mxin： 功能封装1234567891011121314151617181920212223export default &#123;  methods: &#123;    resetFilter(form, method = &quot;getData&quot;, fn) &#1
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-28 10:53" pubdate>
+              2024-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue2/">#vue2</a>
+            
+              <a href="/tags/web/">#web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="美酒没故事">
 <meta property="og:description" content="大型项目中的数据状态会比较复杂，一般都会使用 vueX 来管理。但在一些小型项目或状态简单的项目中，为了管理几个状态而引入一个库，显得有些笨重。在 2.6.0+ 版本中，新增的 Vue.observable 可以帮助我们解决这个尴尬的问题，它能让一个对象变成响应式数据 建立store文件： 1234567891011121314import Vue from &amp;#x27;vue&amp;#x27;expo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/img/articles/">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200729103403917.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-03T01:34:02.145Z">
+<meta property="article:modified_time" content="2024-04-04T13:39:22.517Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/img/articles/">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200729103403917.png">
   
   
   
@@ -297,10 +297,10 @@
               <div class="markdown-body">
                 
                 <p>大型项目中的数据状态会比较复杂，一般都会使用 <code>vueX</code> 来管理。但在一些小型项目或状态简单的项目中，为了管理几个状态而引入一个库，显得有些笨重。<br>在 2.6.0+ 版本中，新增的 <code>Vue.observable</code> 可以帮助我们解决这个尴尬的问题，它能让一个对象变成响应式数据</p>
-<h4 id="建立store文件："><a href="#建立store文件：" class="headerlink" title="建立store文件："></a>建立<code>store</code>文件：</h4><p><img src="https://img-blog.csdnimg.cn/20200729103403917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="vue 小型状态管理器"></p>
+<h4 id="建立store文件："><a href="#建立store文件：" class="headerlink" title="建立store文件："></a>建立<code>store</code>文件：</h4><p><img src="https://img-blog.csdnimg.cn/20200729103403917.png" srcset="/img/loading.gif" lazyload alt="vue 小型状态管理器"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Vue</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> state = <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">observable</span>(&#123;<br>  <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mutations = &#123;<br>  <span class="hljs-title function_">SET_COUNT</span>(<span class="hljs-params">number</span>) &#123;<br>    <span class="hljs-keyword">if</span> (number &gt; <span class="hljs-number">0</span>) &#123;<br>      state.<span class="hljs-property">count</span> = number<br>    &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h4 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h4><p><img src="https://img-blog.csdnimg.cn/20200729103545276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="vue 小型状态管理器"></p>
+<h4 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h4><p><img src="https://img-blog.csdnimg.cn/20200729103545276.png" srcset="/img/loading.gif" lazyload alt="vue 小型状态管理器"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs html"> <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  &#123;&#123; count &#125;&#125;<br>   <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;setCount&quot;</span>&gt;</span>加<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">import</span> &#123; state, mutations &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/store&quot;</span>;</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript"><span class="hljs-attr">computed</span>: &#123;</span><br><span class="language-javascript">  <span class="hljs-title function_">count</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> state.<span class="hljs-property">count</span>;</span><br><span class="language-javascript">   &#125;,</span><br><span class="language-javascript"> &#125;,</span><br><span class="language-javascript"> <span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">  <span class="hljs-title function_">setCount</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    mutations.<span class="hljs-title function_">SET_COUNT</span>(<span class="hljs-number">100</span>);</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript"> &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
                 
@@ -508,7 +508,9 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+       <meta name="referrer" content="no-referrer" />
+
+<div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
     </div>
   
   

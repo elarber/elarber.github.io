@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="美酒没故事">
 <meta property="og:description" content="vue init webpack的项目：在build&#x2F;webpack.prod.conf.js文件里改成这样一段代码： 1234567891011121314uglifyOptions: &amp;#123;  mangle: &amp;#123;  	safari10: true  &amp;#125;,  compress: &amp;#123;    warnings: false,    drop_debugger: t">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/img/articles/">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020071916365652.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-03T01:34:01.949Z">
+<meta property="article:modified_time" content="2024-04-04T13:22:46.295Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/img/articles/">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020071916365652.png">
   
   
   
@@ -299,7 +299,7 @@
                 <p>vue init webpack的项目：<br>在<code>build/webpack.prod.conf.js</code>文件里改成这样一段代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">uglifyOptions</span>: &#123;<br>  <span class="hljs-attr">mangle</span>: &#123;<br>  	<span class="hljs-attr">safari10</span>: <span class="hljs-literal">true</span><br>  &#125;,<br>  <span class="hljs-attr">compress</span>: &#123;<br>    <span class="hljs-attr">warnings</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">drop_debugger</span>: <span class="hljs-literal">true</span>,<span class="hljs-comment">//console</span><br>    <span class="hljs-attr">drop_console</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">pure_funcs</span>: [<span class="hljs-string">&#x27;console.log&#x27;</span>, <span class="hljs-string">&#x27;console.error&#x27;</span>]<span class="hljs-comment">//移除console</span><br>  &#125;,<br>&#125;,<br><span class="hljs-attr">sourceMap</span>: config.<span class="hljs-property">build</span>.<span class="hljs-property">productionSourceMap</span>,<br><span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">parallel</span>: <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 <p>就是新加：2-4行，7-9行和13行</p>
-<p>如图：<br><img src="https://img-blog.csdnimg.cn/2020071916365652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="vue 在生产环境清除 console.log console.error"></p>
+<p>如图：<br><img src="https://img-blog.csdnimg.cn/2020071916365652.png" srcset="/img/loading.gif" lazyload alt="vue 在生产环境清除 console.log console.error"></p>
 <hr>
 <p>vue create的项目：<br>在<code>vue.config.js</code>文件：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">configureWebpack</span>: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>    <span class="hljs-comment">// 生产环境取消 console.log</span><br>    <span class="hljs-keyword">if</span> (process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> === <span class="hljs-string">&#x27;production&#x27;</span>) &#123;<br>      config.<span class="hljs-property">optimization</span>.<span class="hljs-property">minimizer</span>[<span class="hljs-number">0</span>].<span class="hljs-property">options</span>.<span class="hljs-property">terserOptions</span>.<span class="hljs-property">compress</span>.<span class="hljs-property">drop_console</span> = <span class="hljs-literal">true</span><br>    &#125;<br>  &#125;,<br></code></pre></td></tr></table></figure>
@@ -395,9 +395,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/913bf51790f8/" title="vue 动态组件：component标签">
+                      <a href="/f138f25d56a9/" title="vue vue-router 嵌套路由">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue 动态组件：component标签</span>
+                        <span class="hidden-mobile">vue vue-router 嵌套路由</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -405,8 +405,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/edec8ac397cf/" title="vue 导航守卫配置">
-                        <span class="hidden-mobile">vue 导航守卫配置</span>
+                      <a href="/ac2667eddc2e/" title="vue 性能优化：gzip编译压缩">
+                        <span class="hidden-mobile">vue 性能优化：gzip编译压缩</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -509,7 +509,9 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+       <meta name="referrer" content="no-referrer" />
+
+<div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
     </div>
   
   

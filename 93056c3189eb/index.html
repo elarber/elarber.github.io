@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="美酒没故事">
 <meta property="og:description" content="1.在你的项目根目录安装此插件 1npm install nprogress --save  如下图：2.待插件安装完毕后在min.js文件中全局引入并配置 12345678910111213141516171819202122232425262728import NProgress from &amp;#x27;nprogress&amp;#x27;import &amp;#x27;nprogress&#x2F;nprogres">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/img/articles/">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190703135214559.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-03T01:34:01.951Z">
+<meta property="article:modified_time" content="2024-04-04T13:41:50.565Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/img/articles/">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190703135214559.png">
   
   
   
@@ -298,9 +298,9 @@
                 
                 <p><strong>1.在你的项目根目录安装此插件</strong></p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install nprogress <span class="hljs-comment">--save </span><br></code></pre></td></tr></table></figure>
-<p>如下图：<br><img src="https://img-blog.csdnimg.cn/20190703135214559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>2.待插件安装完毕后在min.js文件中全局引入并配置</strong></p>
+<p>如下图：<br><img src="https://img-blog.csdnimg.cn/20190703135214559.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>2.待插件安装完毕后在min.js文件中全局引入并配置</strong></p>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs arcade">import NProgress from <span class="hljs-string">&#x27;nprogress&#x27;</span><br>import <span class="hljs-string">&#x27;nprogress/nprogress.css&#x27;</span><br><br><br><br><br><br><br><br>		<span class="hljs-comment">//     ajax请求progress</span><br>Vue.http.interceptors.<span class="hljs-built_in">push</span>(<span class="hljs-function">(<span class="hljs-params">request, next</span>) =&gt;</span> &#123;<br>  NProgress.start();<br>  <br>  next(<span class="hljs-function">(<span class="hljs-params">response</span>)=&gt;</span>&#123;<br>    NProgress.done();<br>  &#125;);<br>&#125;);<br><br><br><br>	<span class="hljs-comment">//    路由请求progress</span><br>router.beforeEach(<span class="hljs-function"><span class="hljs-params">transition</span> =&gt;</span> &#123;<br>  NProgress.start();<br>&#125;);<br> <br>router.afterEach(<span class="hljs-function"><span class="hljs-params">transition</span> =&gt;</span> &#123;<br>  NProgress.done();<br>&#125;);<br></code></pre></td></tr></table></figure>
-<p>如下图：<br><img src="https://img-blog.csdnimg.cn/20190703134816480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>如下图：<br><img src="https://img-blog.csdnimg.cn/20190703134816480.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 
                 
               </div>
@@ -403,8 +403,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/79b09725d61e/" title="vue引入高德地图">
-                        <span class="hidden-mobile">vue引入高德地图</span>
+                      <a href="/4ab421345ffc/" title="vue2项目有多个接口请求基路径url地址的配置方式">
+                        <span class="hidden-mobile">vue2项目有多个接口请求基路径url地址的配置方式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -507,7 +507,9 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+       <meta name="referrer" content="no-referrer" />
+
+<div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
     </div>
   
   

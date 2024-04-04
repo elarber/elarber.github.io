@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="全易">
+  <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+  
+    <meta name="description" content="是用子父组件式写的：父组件： 1234567891011121314151617181920212223242526272829303132&lt;template&gt;  &lt;div class&#x3D;&quot;index2&quot;&gt;      &lt;p slot&#x3D;&quot;title&quot; class&#x3D;&quot;title&quot;&gt;我的处理量&lt;&#x2F;p&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在vue-cli中写echarts （子父组件：echarts图表怎么设置响应式 自适应大小）">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/661d02832a44/index.html">
+<meta property="og:site_name" content="美酒没故事">
+<meta property="og:description" content="是用子父组件式写的：父组件： 1234567891011121314151617181920212223242526272829303132&lt;template&gt;  &lt;div class&#x3D;&quot;index2&quot;&gt;      &lt;p slot&#x3D;&quot;title&quot; class&#x3D;&quot;title&quot;&gt;我的处理量&lt;&#x2F;p&amp;gt">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/img/articles/">
+<meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
+<meta property="article:modified_time" content="2024-04-03T01:34:02.145Z">
+<meta property="article:author" content="全易">
+<meta property="article:tag" content="vue2">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/img/articles/">
+  
+  
+  
+  <title>在vue-cli中写echarts （子父组件：echarts图表怎么设置响应式 自适应大小） - 美酒没故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>美酒没故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-stack-overflow-fill"></i>
+                <span>开源项目</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
+                    
+                    <span>vue2项目初始化开发模板</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init" target="_self">
+                    
+                    <span>uniapp项目初始化开发模板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在vue-cli中写echarts （子父组件：echarts图表怎么设置响应式 自适应大小）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-28 19:26" pubdate>
+          2024年3月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在vue-cli中写echarts （子父组件：echarts图表怎么设置响应式 自适应大小）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>是用子父组件式写的：<br><strong>父组件：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;index2&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;title&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>我的处理量<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">Mydisposes</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;myChange&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Mydisposes</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./ECharts/mydisposes&#x27;</span>; <span class="hljs-comment">// 引入子组件：我的处理量</span></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;index2&#x27;</span>,</span><br><span class="language-javascript">  data () &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">     </span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-attr">components</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-title class_">Mydisposes</span></span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  mounted () &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-property">onresize</span> = <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">myChange</span>.<span class="hljs-title function_">my</span>() <span class="hljs-comment">// 调用子组件的功能 - 图表伸缩响应</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;less&quot;</span> <span class="hljs-attr">scoped</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>子组件：</strong></p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mydisposes&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: right; margin-bottom:20px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;ios-square&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: #55C926;&quot;</span> /&gt;</span> 我的累计处理量: <span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 20px;&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">mydisposesNum</span> &#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>件<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;mydisposesecharts&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 100%; height: 400px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">import</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;echarts&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;mydisposes&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">  data () &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">return</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-attr">mydisposesNum</span>:<span class="hljs-string">&#x27;2,037&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-attr">mydisposesecharts</span>: <span class="hljs-literal">null</span>,</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-attr">echartsData</span>: [<span class="hljs-number">77</span>, <span class="hljs-number">89</span>, <span class="hljs-number">97</span>, <span class="hljs-number">56</span>, <span class="hljs-number">102</span>, <span class="hljs-number">91</span>, <span class="hljs-number">121</span>]</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">methods</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title function_">my</span>(<span class="hljs-params"></span>) &#123;  <span class="hljs-comment">// 此功能需在父组件上执行</span></span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">mydisposesecharts</span>.<span class="hljs-title function_">resize</span>();  <span class="hljs-comment">// 重载图表（图表伸缩响应）</span></span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  created () &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    </span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  mounted () &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">const</span> option = &#123;</span></span><br><span class="language-javascript"><span class="language-xml">     <span class="hljs-comment">/*  title: &#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        show:true,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        text: &#x27;趋势图 - 主标题&#x27;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        subtext:&#x27;我是副标题&#x27;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        right:0,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">      &#125;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">      // 工具箱</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">      toolbox:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        show:true,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        feature:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            dataView:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">                show:true</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            &#125;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            restore:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">                show:true</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            &#125;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            dataZoom:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">              show:true</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            &#125;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            saveAsImage:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">              show:true</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            &#125;,</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            magicType:&#123;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">              type:[&#x27;line&#x27;,&#x27;bar&#x27;]</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">        &#125;</span></span></span><br><span class="hljs-comment"><span class="language-javascript"><span class="language-xml">      &#125;, */</span></span></span><br><span class="language-javascript"><span class="language-xml">     <span class="hljs-comment">// 鼠标经过图表时的悬浮框</span></span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">tooltip</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">trigger</span>: <span class="hljs-string">&#x27;axis&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">confine</span>:<span class="hljs-literal">true</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;#CFCFD3&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">axisPointer</span>:&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">lineStyle</span>:&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">color</span>:<span class="hljs-string">&#x27;#3aa7ff&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;</span></span><br><span class="language-javascript"><span class="language-xml">              &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">formatter</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">params, ticket, callback</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// console.log(params);</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-keyword">let</span> date=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-keyword">let</span> year=date.<span class="hljs-title function_">getFullYear</span>();</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-keyword">let</span> showText = year +<span class="hljs-string">&#x27;-&#x27;</span>+ params[<span class="hljs-number">0</span>].<span class="hljs-property">axisValueLabel</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;-&#x27;</span>).<span class="hljs-title function_">substring</span>(<span class="hljs-number">0</span>, params[<span class="hljs-number">0</span>].<span class="hljs-property">axisValueLabel</span>.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>) +<span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> + <span class="hljs-string">&#x27;办件处理量：&#x27;</span>+ params[<span class="hljs-number">0</span>].<span class="hljs-property">value</span>;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-keyword">if</span>(showText.<span class="hljs-title function_">substring</span>(<span class="hljs-number">0</span>,<span class="hljs-number">7</span>)==year+<span class="hljs-string">&#x27;-今天&#x27;</span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  showText = <span class="hljs-string">&#x27;今天&#x27;</span> +<span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> + <span class="hljs-string">&#x27;办件处理量：&#x27;</span>+ params[<span class="hljs-number">0</span>].<span class="hljs-property">value</span>;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-keyword">return</span> showText;</span></span><br><span class="language-javascript"><span class="language-xml">              &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">textStyle</span>:&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#31394D&#x27;</span> <span class="hljs-comment">// 提示悬浮层的文字颜色</span></span></span><br><span class="language-javascript"><span class="language-xml">              &#125;</span></span><br><span class="language-javascript"><span class="language-xml">            &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-comment">// 图表的边距</span></span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">grid</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">top</span>: <span class="hljs-string">&#x27;10px&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">left</span>: <span class="hljs-string">&#x27;10px&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">right</span>: <span class="hljs-string">&#x27;20px&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">bottom</span>: <span class="hljs-string">&#x27;10px&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">              <span class="hljs-attr">containLabel</span>: <span class="hljs-literal">true</span></span></span><br><span class="language-javascript"><span class="language-xml">            &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">xAxis</span>: [</span></span><br><span class="language-javascript"><span class="language-xml">              &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;category&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">boundaryGap</span>: <span class="hljs-literal">false</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisTick</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">show</span>:<span class="hljs-literal">false</span> <span class="hljs-comment">// 是否显示坐标轴刻度。</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;, </span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisLine</span>:&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">lineStyle</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#748AA1&#x27;</span>, <span class="hljs-comment">// 轴线颜色</span></span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisLabel</span>: &#123;  <span class="hljs-comment">// 横轴的文字样式</span></span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">lineHeight</span>: <span class="hljs-number">18</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#748AA1&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  fontSize : <span class="hljs-number">14</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">data</span>: myMergeWeekDate</span></span><br><span class="language-javascript"><span class="language-xml">                      .<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                        <span class="hljs-keyword">return</span> str.<span class="hljs-title function_">substring</span>(<span class="hljs-number">5</span>, str.<span class="hljs-property">length</span>)  <span class="hljs-comment">// 截掉字符串，前5位不要</span></span></span><br><span class="language-javascript"><span class="language-xml">                      &#125;).<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                         <span class="hljs-keyword">return</span> str.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;-&#x27;</span>, <span class="hljs-string">&#x27;/&#x27;</span>);  <span class="hljs-comment">// 将日期中的 - 替换为 /</span></span></span><br><span class="language-javascript"><span class="language-xml">                      &#125;).<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                        <span class="hljs-keyword">return</span> str.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;\n&#x27;</span>)  <span class="hljs-comment">// 将日期中的空格替换为：换行</span></span></span><br><span class="language-javascript"><span class="language-xml">                      &#125;).<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                        <span class="hljs-keyword">return</span> str.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;周天&#x27;</span>, <span class="hljs-string">&#x27;周日&#x27;</span>)  <span class="hljs-comment">// 将日期中的周天替换为：周日</span></span></span><br><span class="language-javascript"><span class="language-xml">                      &#125;).<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                        <span class="hljs-keyword">return</span> str.<span class="hljs-title function_">replace</span>(monthDay, <span class="hljs-string">&#x27;今天&#x27;</span>)  <span class="hljs-comment">// 将当天数字改为：今天</span></span></span><br><span class="language-javascript"><span class="language-xml">                      &#125;)</span></span><br><span class="language-javascript"><span class="language-xml">              &#125;</span></span><br><span class="language-javascript"><span class="language-xml">            ],</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">yAxis</span>: [</span></span><br><span class="language-javascript"><span class="language-xml">              &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;value&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">minInterval</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 设置成1：保证纵轴数字显示成整数。</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisLine</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">show</span>:<span class="hljs-literal">false</span>, <span class="hljs-comment">// 是否显示坐标轴轴线。</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;, </span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisTick</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">show</span>:<span class="hljs-literal">false</span> <span class="hljs-comment">// 是否显示坐标轴刻度。</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;, </span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">splitLine</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">lineStyle</span>:&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">type</span>:<span class="hljs-string">&#x27;dashed&#x27;</span>, <span class="hljs-comment">// 背景线为虚线</span></span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">color</span>:<span class="hljs-string">&#x27;#C5D9E8&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">axisLabel</span>: &#123;  <span class="hljs-comment">// 纵轴的文字样式</span></span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#3F536E&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  fontSize : <span class="hljs-number">14</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">margin</span>: <span class="hljs-number">18</span>  <span class="hljs-comment">// 文字与折线图的间距</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">              &#125;</span></span><br><span class="language-javascript"><span class="language-xml">            ],</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">series</span>: [</span></span><br><span class="language-javascript"><span class="language-xml">              &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// symbol:&#x27;circle&#x27;,    // 折线点设定为实心点</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">symbolSize</span>: <span class="hljs-number">9</span>,   <span class="hljs-comment">// 设定折线点的大小</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">label</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">normal</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-comment">// show: true, // 折线上的文字是否显示</span></span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;top&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// 折线条的样式</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">lineStyle</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">color</span>: <span class="hljs-string">&quot;#3aa7ff&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">width</span>: <span class="hljs-number">2</span></span></span><br><span class="language-javascript"><span class="language-xml">                &#125;, </span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// 折线拐点的样式</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">itemStyle</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">normal</span>: &#123; <span class="hljs-comment">// 静止时：</span></span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#3aa7ff&#x27;</span> </span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">emphasis</span>:&#123; <span class="hljs-comment">// 鼠标经过时：</span></span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#3aa7ff&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">borderColor</span>: <span class="hljs-string">&#x27;#3aa7ff&#x27;</span></span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-comment">// 填充区域的样式</span></span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">areaStyle</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                  <span class="hljs-attr">normal</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-comment">// 填充色渐变</span></span></span><br><span class="language-javascript"><span class="language-xml">                    <span class="hljs-attr">color</span>: <span class="hljs-keyword">new</span> echarts.<span class="hljs-property">graphic</span>.<span class="hljs-title class_">LinearGradient</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [</span></span><br><span class="language-javascript"><span class="language-xml">                      &#123; <span class="hljs-attr">offset</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">color</span>: <span class="hljs-string">&quot;rgba(58, 167, 255,0.3)&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                      &#123; <span class="hljs-attr">offset</span>: <span class="hljs-number">0.5</span>, <span class="hljs-attr">color</span>: <span class="hljs-string">&quot;rgba(58, 167, 255,0.2)&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                      &#123; <span class="hljs-attr">offset</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">color</span>: <span class="hljs-string">&quot;rgba(58, 167, 255,0)&quot;</span> &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                    ])</span></span><br><span class="language-javascript"><span class="language-xml">                  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">                &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">data</span>: myTroughputChartsData.<span class="hljs-title function_">map</span>(<span class="hljs-title class_">Number</span>)</span></span><br><span class="language-javascript"><span class="language-xml">              &#125;</span></span><br><span class="language-javascript"><span class="language-xml">            ]</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-variable language_">this</span>.$nextTick(<span class="hljs-function">() =&gt;</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">mydisposesecharts</span> = echarts.<span class="hljs-title function_">init</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">mydisposesecharts</span>)</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">mydisposesecharts</span>.<span class="hljs-title function_">setOption</span>(option)</span></span><br><span class="language-javascript"><span class="language-xml">      <span class="hljs-comment">// this.mydisposesecharts.on(&#x27;resize&#x27;,window, this.resize)</span></span></span><br><span class="language-javascript"><span class="language-xml">    &#125;)</span></span><br><span class="language-javascript"><span class="language-xml">  &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">  beforeDestroy () &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// off(window, &#x27;resize&#x27;, this.resize)</span></span></span><br><span class="language-javascript"><span class="language-xml">  &#125;</span></span><br><span class="language-javascript"><span class="language-xml">&#125;</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;less&quot;</span> <span class="hljs-attr">scoped</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br><span class="language-xml"></span><br></code></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20190919141651603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjE4NTY2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue2/" class="category-chain-item">vue2</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/vue2/" class="print-no-link">#vue2</a>
+      
+        <a href="/tags/web/" class="print-no-link">#web</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在vue-cli中写echarts （子父组件：echarts图表怎么设置响应式 自适应大小）</div>
+      <div>https://gitee.com/chergn/chergn.git/661d02832a44/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>全易</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/1fe005d59ab9/" title="uniapp 请求封装，拦截器：请求拦截、响应拦截">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">uniapp 请求封装，拦截器：请求拦截、响应拦截</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/c39537b61a0d/" title="Vue2 使用事件跳转页面">
+                        <span class="hidden-mobile">Vue2 使用事件跳转页面</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="margin-top:100px"> <span>全易</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

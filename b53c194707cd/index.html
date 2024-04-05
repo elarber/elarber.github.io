@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="全易">
+  <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+  
+    <meta name="description" content="数组结构   数组是可以再内存中连续存储多个元素的结构，在内存中的分配也是连续的，数组中的元素通过数组下标进行访问，数组下标从0开始。例如下面这段代码就是将数组的第一个元素赋值为 1。  示例图：形象图：[video(video-523RVe1F-1580798044976)(type-bilibili)(url-https:&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/b53c194707cd/index.html">
+<meta property="og:site_name" content="美酒没故事">
+<meta property="og:description" content="数组结构   数组是可以再内存中连续存储多个元素的结构，在内存中的分配也是连续的，数组中的元素通过数组下标进行访问，数组下标从0开始。例如下面这段代码就是将数组的第一个元素赋值为 1。  示例图：形象图：[video(video-523RVe1F-1580798044976)(type-bilibili)(url-https:&#x2F;&#x2F;player.bilibili.com&#x2F;player.html?a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200204140611815.png">
+<meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
+<meta property="article:modified_time" content="2024-04-05T10:55:52.494Z">
+<meta property="article:author" content="全易">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200204140611815.png">
+  
+  
+  
+    <meta name="referrer" content="no-referrer" />
+  
+  <title>数据结构 - 美酒没故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>美酒没故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-stack-overflow-fill"></i>
+                <span>开源项目</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
+                    
+                    <span>vue2项目初始化开发模板</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init" target="_self">
+                    
+                    <span>uniapp项目初始化开发模板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据结构"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-28 20:33" pubdate>
+          2024年3月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          950 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数据结构</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li><h4 id="数组结构"><a href="#数组结构" class="headerlink" title="数组结构"></a>数组结构</h4></li>
+</ul>
+<blockquote>
+<p>数组是可以再内存中连续存储多个元素的结构，在内存中的分配也是连续的，数组中的元素通过数组下标进行访问，数组下标从0开始。例如下面这段代码就是将数组的第一个元素赋值为 1。</p>
+</blockquote>
+<p>示例图：<br><img src="https://img-blog.csdnimg.cn/20200204134526170.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述">形象图：<br><img src="https://img-blog.csdnimg.cn/2020020414321522.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>[video(video-523RVe1F-1580798044976)(type-bilibili)(url-<a target="_blank" rel="noopener" href="https://player.bilibili.com/player.html?aid=66417559&page=6)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)%5D">https://player.bilibili.com/player.html?aid=66417559&amp;page=6)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)]</a></p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>按照索引查询元素速度快</li>
+<li>按照索引遍历数组方便</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>数组的大小固定后就无法扩容了</li>
+<li>数组只能存储一种类型的数据</li>
+<li>添加，删除的操作慢，因为要移动其他的元素。</li>
+</ol>
+<hr>
+<ul>
+<li><h4 id="栈结构"><a href="#栈结构" class="headerlink" title="栈结构"></a>栈结构</h4></li>
+</ul>
+<blockquote>
+<p>栈是一种特殊的线性表，仅能在线性表的一端操作，<strong>栈顶允许操作</strong>，<strong>栈底不允许操作</strong>。<br>栈的特点是：只有一个开口方向，元素只能&#x3D;&#x3D;先进后出&#x3D;&#x3D;，从栈顶放入元素的操作叫<strong>入栈</strong>，取出元素叫<strong>出栈</strong>。</p>
+</blockquote>
+<p>示例图：<br><img src="https://img-blog.csdnimg.cn/20200203221852821.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>形象图：<br><img src="https://img-blog.csdnimg.cn/20200203223029346.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>那么是不是<strong>第一个放进去的书最后一个才能被取出来</strong>？而<strong>最后放进去的书倒是可以第一个取出来</strong>？</p>
+<p>栈的结构就像一个集装箱，越先放进去的东西越晚才能拿出来，所以，栈常应用于实现递归功能方面的场景，例如斐波那契数列。</p>
+<p>[video(video-kw16NRSr-1580748298497)(type-bilibili)(url-<a target="_blank" rel="noopener" href="https://player.bilibili.com/player.html?aid=66417559&page=7)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)%5D">https://player.bilibili.com/player.html?aid=66417559&amp;page=7)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)]</a></p>
+<hr>
+<ul>
+<li><h4 id="队列结构"><a href="#队列结构" class="headerlink" title="队列结构"></a>队列结构</h4></li>
+</ul>
+<blockquote>
+<p>队列与栈相似，也是一种线性表，不同的是队列可以在一端添加元素，在另一端取出元素，也就是：&#x3D;&#x3D;先进先出&#x3D;&#x3D;原则。从一端放入元素的操作称为<strong>入队</strong>，另外一端取出元素称为<strong>出队</strong></p>
+</blockquote>
+<p>示例图：<br><img src="https://img-blog.csdnimg.cn/20200203224224807.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>因为队列先进先出的特点，在多线程阻塞队列管理中非常适用。</p>
+<p>形象图：<br><img src="https://img-blog.csdnimg.cn/20200203223924825.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>[video(video-nR77T42t-1580748379177)(type-bilibili)(url-<a target="_blank" rel="noopener" href="https://player.bilibili.com/player.html?aid=66417559&page=13)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)%5D">https://player.bilibili.com/player.html?aid=66417559&amp;page=13)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)]</a></p>
+<hr>
+<h5 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h5><p>优先级如字面意义<strong>优先</strong>，优先级队列的数据都带有优先标记。队列中的数据都会进行比较 优先处理序号排前的数据，其他数据的操作方式和队列结构的处理方式一样。</p>
+<p>示例图：<br><img src="https://img-blog.csdnimg.cn/2020020413301278.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>形象图：<br><img src="https://img-blog.csdnimg.cn/2020020413345647.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>[video(video-GpeH4iza-1580748400000)(type-bilibili)(url-<a target="_blank" rel="noopener" href="https://player.bilibili.com/player.html?aid=66417559&page=18)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)%5D">https://player.bilibili.com/player.html?aid=66417559&amp;page=18)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)]</a></p>
+<hr>
+<ul>
+<li><h4 id="链表结构"><a href="#链表结构" class="headerlink" title="链表结构"></a>链表结构</h4></li>
+</ul>
+<blockquote>
+<p>链表是物理存储单元上非连续的、非顺序的存储结构，数据元素的逻辑顺序是通过链表的指针地址实现，每个元素包含两个结点，一个是存储元素的数据域 (内存空间)，另一个是指向下一个结点地址的指针域。根据指针的指向，链表能形成不同的结构，例如单链表，双向链表，循环链表等。 </p>
+</blockquote>
+<p>示例图：<br><img src="https://img-blog.csdnimg.cn/20200204140433744.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200204140831768.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>形象图：<br><img src="https://img-blog.csdnimg.cn/20200204140605978.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200204140611815.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>优点：</strong><br>链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；<br>添加或者删除元素时只需要改变前后两个元素结点的指针域指向地址即可，所以添加，删除很快；</p>
+<p><strong>缺点：</strong><br>因为含有大量的指针域，占用空间较大；<br>查找元素需要遍历链表来查找，非常耗时。</p>
+<p>适用场景：<br>数据量较小，需要频繁增加，删除操作的场景</p>
+<p>[video(video-xHpuh4cs-1580796399930)(type-bilibili)(url-<a target="_blank" rel="noopener" href="https://player.bilibili.com/player.html?aid=66417559&page=21)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)%5D">https://player.bilibili.com/player.html?aid=66417559&amp;page=21)(image-https://ss.csdn.net/p?http://i0.hdslb.com/bfs/archive/ab2b52b3230a1b956a599778ff9430d5f4c45e62.jpg)(title-)]</a></p>
+<hr>
+<ul>
+<li><h4 id=""><a href="#" class="headerlink" title=""></a></h4></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%90%86%E8%AE%BA%E6%89%93%E5%BA%95/" class="category-chain-item">理论打底</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据结构</div>
+      <div>https://gitee.com/chergn/chergn.git/b53c194707cd/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>全易</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/013e7ee613e5/" title="http 请求服务器返回状态码的含义">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">http 请求服务器返回状态码的含义</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/b2129db2e45d/" title="package.json 包管理器版本号说明">
+                        <span class="hidden-mobile">package.json 包管理器版本号说明</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="margin-top:100px"> <span>quanyi</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

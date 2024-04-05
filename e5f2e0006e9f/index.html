@@ -1,0 +1,675 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="全易">
+  <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+  
+    <meta name="description" content="高德地图：应用到哪里就点哪个，有应用到安卓端的、IOS端的、WEB端等… 举个例子：WEB端 注册账号： 申请Key：  拿到Key之后就是1. 开始引入高德地图： 1&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;https:&#x2F;&#x2F;webapi.amap.com&#x2F;maps?v&#x3D;1.4.15&amp;key&#x3D;你的Key粘到这里&quot;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端原生开发引入高德地图">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/e5f2e0006e9f/index.html">
+<meta property="og:site_name" content="美酒没故事">
+<meta property="og:description" content="高德地图：应用到哪里就点哪个，有应用到安卓端的、IOS端的、WEB端等… 举个例子：WEB端 注册账号： 申请Key：  拿到Key之后就是1. 开始引入高德地图： 1&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;https:&#x2F;&#x2F;webapi.amap.com&#x2F;maps?v&#x3D;1.4.15&amp;key&#x3D;你的Key粘到这里&quot;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191014171232213.png">
+<meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
+<meta property="article:modified_time" content="2024-04-05T10:55:52.495Z">
+<meta property="article:author" content="全易">
+<meta property="article:tag" content="高德地图">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191014171232213.png">
+  
+  
+  
+    <meta name="referrer" content="no-referrer" />
+  
+  <title>前端原生开发引入高德地图 - 美酒没故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>美酒没故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-stack-overflow-fill"></i>
+                <span>开源项目</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
+                    
+                    <span>vue2项目初始化开发模板</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init" target="_self">
+                    
+                    <span>uniapp项目初始化开发模板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="前端原生开发引入高德地图"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-28 20:33" pubdate>
+          2024年3月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          689 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">前端原生开发引入高德地图</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://lbs.amap.com/">高德地图</a>：应用到哪里就点哪个，有应用到安卓端的、IOS端的、WEB端等…<br><img src="https://img-blog.csdnimg.cn/20191014125322937.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>举个例子：<code>WEB端</code><br><img src="https://img-blog.csdnimg.cn/20191014125714623.gif" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>注册账号：</strong><br><img src="https://img-blog.csdnimg.cn/20191014130024715.gif" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>申请Key：</strong><br><img src="https://img-blog.csdnimg.cn/20191014130201335.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20191014130320935.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191014130532907.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191014130653534.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>拿到Key之后就是<br><strong>1. 开始引入高德地图：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://webapi.amap.com/maps?v=1.4.15&amp;key=你的Key粘到这里&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+<p>如图：<br><img src="https://img-blog.csdnimg.cn/20191014130957685.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><strong>2. 搭建html：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><strong>3. css：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">html</span>, <span class="hljs-selector-tag">body</span>, <span class="hljs-selector-id">#container</span> &#123;<br>           <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>           <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>       &#125;<br><br>       <span class="hljs-selector-class">.content-window-card</span> &#123;<br>           <span class="hljs-attribute">position</span>: relative;<br>           <span class="hljs-attribute">box-shadow</span>: none;<br>           <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>           <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>           <span class="hljs-attribute">width</span>: auto;<br>           <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>       &#125;<br><br>       <span class="hljs-selector-class">.content-window-card</span> <span class="hljs-selector-tag">p</span> &#123;<br>           <span class="hljs-attribute">height</span>: <span class="hljs-number">2rem</span>;<br>       &#125;<br><br>       <span class="hljs-selector-class">.custom-info</span> &#123;<br>           <span class="hljs-attribute">border</span>: solid <span class="hljs-number">1px</span> silver;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-top</span> &#123;<br>           <span class="hljs-attribute">position</span>: relative;<br>           <span class="hljs-attribute">background</span>: none repeat scroll <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#F9F9F9</span>;<br>           <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#CCC</span>;<br>           <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-top</span> <span class="hljs-selector-tag">div</span> &#123;<br>           <span class="hljs-attribute">display</span>: inline-block;<br>           <span class="hljs-attribute">color</span>: <span class="hljs-number">#333333</span>;<br>           <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;<br>           <span class="hljs-attribute">font-weight</span>: bold;<br>           <span class="hljs-attribute">line-height</span>: <span class="hljs-number">31px</span>;<br>           <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">10px</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-top</span> <span class="hljs-selector-tag">img</span> &#123;<br>           <span class="hljs-attribute">position</span>: absolute;<br>           <span class="hljs-attribute">top</span>: <span class="hljs-number">10px</span>;<br>           <span class="hljs-attribute">right</span>: <span class="hljs-number">10px</span>;<br>           <span class="hljs-attribute">transition-duration</span>: <span class="hljs-number">0.25s</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-top</span> <span class="hljs-selector-tag">img</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>           <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">5px</span> <span class="hljs-number">#000</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-middle</span> &#123;<br>           <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;<br>           <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">6px</span>;<br>           <span class="hljs-attribute">line-height</span>: <span class="hljs-number">20px</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-bottom</span> &#123;<br>           <span class="hljs-attribute">height</span>: <span class="hljs-number">0px</span>;<br>           <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>           <span class="hljs-attribute">clear</span>: both;<br>           <span class="hljs-attribute">text-align</span>: center;<br>       &#125;<br><br>       <span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.info-bottom</span> <span class="hljs-selector-tag">img</span> &#123;<br>           <span class="hljs-attribute">position</span>: relative;<br>           <span class="hljs-attribute">z-index</span>: <span class="hljs-number">104</span>;<br>       &#125;<br><br>       <span class="hljs-selector-tag">span</span> &#123;<br>           <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">5px</span>;<br>           <span class="hljs-attribute">font-size</span>: <span class="hljs-number">11px</span>;<br>       &#125;<br><br>       <span class="hljs-selector-class">.info-middle</span> <span class="hljs-selector-tag">img</span> &#123;<br>           <span class="hljs-attribute">float</span>: left;<br>           <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">6px</span>;<br>       &#125;<br></code></pre></td></tr></table></figure>
+<p><strong>4. js：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">AMap</span>.<span class="hljs-title class_">Map</span>(<span class="hljs-string">&quot;container&quot;</span>, &#123;<br>    <span class="hljs-attr">resizeEnable</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">center</span>: [<span class="hljs-number">116.481181</span>, <span class="hljs-number">39.989792</span>],<br>    <span class="hljs-attr">zoom</span>: <span class="hljs-number">16</span><br>&#125;);<br><span class="hljs-title function_">addMarker</span>();<br><br><span class="hljs-comment">//添加marker标记</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">addMarker</span>(<span class="hljs-params"></span>) &#123;<br>    map.<span class="hljs-title function_">clearMap</span>();<br>    <span class="hljs-keyword">var</span> marker = <span class="hljs-keyword">new</span> <span class="hljs-title class_">AMap</span>.<span class="hljs-title class_">Marker</span>(&#123;<br>        <span class="hljs-attr">map</span>: map,<br>        <span class="hljs-attr">position</span>: [<span class="hljs-number">116.481181</span>, <span class="hljs-number">39.989792</span>]<br>    &#125;);<br>    <span class="hljs-comment">//鼠标点击marker弹出自定义的信息窗体</span><br>    <span class="hljs-title class_">AMap</span>.<span class="hljs-property">event</span>.<span class="hljs-title function_">addListener</span>(marker, <span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        infoWindow.<span class="hljs-title function_">open</span>(map, marker.<span class="hljs-title function_">getPosition</span>());<br>    &#125;);<br>&#125;<br><br><span class="hljs-comment">//实例化信息窗体</span><br><span class="hljs-keyword">var</span> title = <span class="hljs-string">&#x27;方恒假日酒店&lt;span style=&quot;font-size:11px;color:#F00;&quot;&gt;价格:318&lt;/span&gt;&#x27;</span>,<br>    content = [];<br>content.<span class="hljs-title function_">push</span>(<span class="hljs-string">&quot;&lt;img src=&#x27;http://tpc.googlesyndication.com/simgad/5843493769827749134&#x27;&gt;地址：北京市朝阳区阜通东大街6号院3号楼东北8.3公里&quot;</span>);<br>content.<span class="hljs-title function_">push</span>(<span class="hljs-string">&quot;电话：010-64733333&quot;</span>);<br>content.<span class="hljs-title function_">push</span>(<span class="hljs-string">&quot;&lt;a href=&#x27;https://ditu.amap.com/detail/B000A8URXB?citycode=110105&#x27;&gt;详细信息&lt;/a&gt;&quot;</span>);<br><span class="hljs-keyword">var</span> infoWindow = <span class="hljs-keyword">new</span> <span class="hljs-title class_">AMap</span>.<span class="hljs-title class_">InfoWindow</span>(&#123;<br>    <span class="hljs-attr">isCustom</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">//使用自定义窗体</span><br>    <span class="hljs-attr">content</span>: <span class="hljs-title function_">createInfoWindow</span>(title, content.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&lt;br/&gt;&quot;</span>)),<br>    <span class="hljs-attr">offset</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">AMap</span>.<span class="hljs-title class_">Pixel</span>(<span class="hljs-number">16</span>, -<span class="hljs-number">45</span>)<br>&#125;);<br><br><span class="hljs-comment">//构建自定义信息窗体</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">createInfoWindow</span>(<span class="hljs-params">title, content</span>) &#123;<br>    <span class="hljs-keyword">var</span> info = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>    info.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;custom-info input-card content-window-card&quot;</span>;<br><br>    <span class="hljs-comment">//可以通过下面的方式修改自定义窗体的宽高</span><br>    <span class="hljs-comment">//info.style.width = &quot;400px&quot;;</span><br>    <span class="hljs-comment">// 定义顶部标题</span><br>    <span class="hljs-keyword">var</span> top = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>    <span class="hljs-keyword">var</span> titleD = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>    <span class="hljs-keyword">var</span> closeX = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;img&quot;</span>);<br>    top.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;info-top&quot;</span>;<br>    titleD.<span class="hljs-property">innerHTML</span> = title;<br>    closeX.<span class="hljs-property">src</span> = <span class="hljs-string">&quot;https://webapi.amap.com/images/close2.gif&quot;</span>;<br>    closeX.<span class="hljs-property">onclick</span> = closeInfoWindow;<br><br>    top.<span class="hljs-title function_">appendChild</span>(titleD);<br>    top.<span class="hljs-title function_">appendChild</span>(closeX);<br>    info.<span class="hljs-title function_">appendChild</span>(top);<br><br>    <span class="hljs-comment">// 定义中部内容</span><br>    <span class="hljs-keyword">var</span> middle = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>    middle.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;info-middle&quot;</span>;<br>    middle.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = <span class="hljs-string">&#x27;white&#x27;</span>;<br>    middle.<span class="hljs-property">innerHTML</span> = content;<br>    info.<span class="hljs-title function_">appendChild</span>(middle);<br><br>    <span class="hljs-comment">// 定义底部内容</span><br>    <span class="hljs-keyword">var</span> bottom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>    bottom.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;info-bottom&quot;</span>;<br>    bottom.<span class="hljs-property">style</span>.<span class="hljs-property">position</span> = <span class="hljs-string">&#x27;relative&#x27;</span>;<br>    bottom.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = <span class="hljs-string">&#x27;0px&#x27;</span>;<br>    bottom.<span class="hljs-property">style</span>.<span class="hljs-property">margin</span> = <span class="hljs-string">&#x27;0 auto&#x27;</span>;<br>    <span class="hljs-keyword">var</span> sharp = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;img&quot;</span>);<br>    sharp.<span class="hljs-property">src</span> = <span class="hljs-string">&quot;https://webapi.amap.com/images/sharp.png&quot;</span>;<br>    bottom.<span class="hljs-title function_">appendChild</span>(sharp);<br>    info.<span class="hljs-title function_">appendChild</span>(bottom);<br>    <span class="hljs-keyword">return</span> info;<br>&#125;<br><br><span class="hljs-comment">//关闭信息窗体</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">closeInfoWindow</span>(<span class="hljs-params"></span>) &#123;<br>    map.<span class="hljs-title function_">clearInfoWindow</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>效果：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20191014171232213.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>更多配置要看<a target="_blank" rel="noopener" href="https://lbs.amap.com/">高德地图API</a></strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="category-chain-item">前端插件使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" class="print-no-link">#高德地图</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>前端原生开发引入高德地图</div>
+      <div>https://gitee.com/chergn/chergn.git/e5f2e0006e9f/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>全易</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/9e45ba163927/" title="前端插件Animate.css的调用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">前端插件Animate.css的调用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/f18153eb8969/" title="基于js的原生插件：canvas绚丽的动态气泡背景">
+                        <span class="hidden-mobile">基于js的原生插件：canvas绚丽的动态气泡背景</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="margin-top:100px"> <span>quanyi</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

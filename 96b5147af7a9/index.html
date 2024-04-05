@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="全易">
+  <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
+  
+    <meta name="description" content="封装12345678910111213141516171819202122232425262728293031323334353637383940import axios from &amp;#x27;axios&amp;#x27;import &amp;#123; Message &amp;#125; from &amp;#x27;element-ui&amp;#x27;;export default &amp;#123;  excel(params">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios 封装下载功能">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/96b5147af7a9/index.html">
+<meta property="og:site_name" content="美酒没故事">
+<meta property="og:description" content="封装12345678910111213141516171819202122232425262728293031323334353637383940import axios from &amp;#x27;axios&amp;#x27;import &amp;#123; Message &amp;#125; from &amp;#x27;element-ui&amp;#x27;;export default &amp;#123;  excel(params">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
+<meta property="article:modified_time" content="2024-04-05T10:55:52.495Z">
+<meta property="article:author" content="全易">
+<meta property="article:tag" content="axios">
+<meta property="article:tag" content="文件下载">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+    <meta name="referrer" content="no-referrer" />
+  
+  <title>axios 封装下载功能 - 美酒没故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>美酒没故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-stack-overflow-fill"></i>
+                <span>开源项目</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
+                    
+                    <span>vue2项目初始化开发模板</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init" target="_self">
+                    
+                    <span>uniapp项目初始化开发模板</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="axios 封装下载功能"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-28 20:33" pubdate>
+          2024年3月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          562 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">axios 封装下载功能</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Message</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-ui&#x27;</span>;<br><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-title function_">excel</span>(<span class="hljs-params">params</span>) &#123;<br>  <span class="hljs-keyword">const</span> downLoading = <span class="hljs-variable constant_">ELEMENT</span>.<span class="hljs-property">Loading</span>.<span class="hljs-title function_">service</span>(&#123;<br>    <span class="hljs-attr">lock</span>: <span class="hljs-literal">true</span>,<br>     <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;正在获取...&quot;</span>,<br>     <span class="hljs-attr">spinner</span>: <span class="hljs-string">&quot;el-icon-loading&quot;</span>,<br>     <span class="hljs-attr">background</span>: <span class="hljs-string">&quot;rgba(0, 0, 0, 0.7)&quot;</span>,<br>   &#125;);<br>    <span class="hljs-title function_">axios</span>(&#123;<br>      <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/model/exportAllTable/exportTableMsg2&#x27;</span>,<br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;post&#x27;</span>,<br>      <span class="hljs-attr">responseType</span>: <span class="hljs-string">&#x27;blob&#x27;</span>,<br>      <span class="hljs-attr">url</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">BASE_URL</span>,<br>      <span class="hljs-attr">data</span>: &#123;<br>        <span class="hljs-attr">key</span>: <span class="hljs-string">&quot;8e15edc35cb68460d4jn08b849okn791&quot;</span>,<br>        <span class="hljs-attr">tokens</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">name</span>,<br>        ...params<br>      &#125;<br>    &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br>      <span class="hljs-keyword">if</span> (res.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;<br>        <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([res.<span class="hljs-property">data</span>], &#123; <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;application/vnd.ms-excel&quot;</span> &#125;); <span class="hljs-comment">// excel文件</span><br>        <span class="hljs-keyword">var</span> link = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;a&quot;</span>); <span class="hljs-comment">// 创建下载的实体标签</span><br>        link.<span class="hljs-property">href</span> = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(blob); <span class="hljs-comment">// 创建下载的链接</span><br>        link.<span class="hljs-property">download</span> = params.<span class="hljs-property">fileName</span> +<span class="hljs-string">&quot;【用能医生】.xls&quot;</span>; <span class="hljs-comment">// 下载的文件名</span><br>        link.<span class="hljs-title function_">click</span>(); <span class="hljs-comment">// 执行下载</span><br>        <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(link.<span class="hljs-property">href</span>); <span class="hljs-comment">// 下载完成释放掉blob对象</span><br>        <span class="hljs-title class_">Message</span>.<span class="hljs-title function_">success</span>(<span class="hljs-string">&quot;下载成功&quot;</span>)<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-title class_">Message</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;下载失败&quot;</span>)<br>      &#125;<br>    &#125;).<span class="hljs-title function_">finally</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      downLoading.<span class="hljs-title function_">close</span>();<br>    &#125;);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="blob的type值："><a href="#blob的type值：" class="headerlink" title="blob的type值："></a>blob的type值：</h1><table>
+<thead>
+<tr>
+<th>文件后缀</th>
+<th>文件</th>
+<th>type值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>aac</td>
+<td>AAC audio</td>
+<td>audio&#x2F;aac</td>
+</tr>
+<tr>
+<td>.abw</td>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/AbiWord">AbiWord</a> document</td>
+<td>application&#x2F;x-abiword</td>
+</tr>
+<tr>
+<td>.arc</td>
+<td>Archive document (multiple files embedded)</td>
+<td>application&#x2F;x-freearc</td>
+</tr>
+<tr>
+<td>.avi</td>
+<td>AVI: Audio Video Interleave</td>
+<td>video&#x2F;x-msvideo</td>
+</tr>
+<tr>
+<td>.azw</td>
+<td>Amazon Kindle eBook format</td>
+<td>application&#x2F;vnd.amazon.ebook</td>
+</tr>
+<tr>
+<td>.bin</td>
+<td>Any kind of binary data</td>
+<td>application&#x2F;octet-stream</td>
+</tr>
+<tr>
+<td>.bmp</td>
+<td>Windows OS&#x2F;2 Bitmap Graphics</td>
+<td>image&#x2F;bmp</td>
+</tr>
+<tr>
+<td>.bz</td>
+<td>BZip archive</td>
+<td>application&#x2F;x-bzip</td>
+</tr>
+<tr>
+<td>.bz2</td>
+<td>BZip2 archive</td>
+<td>application&#x2F;x-bzip2</td>
+</tr>
+<tr>
+<td>.csh</td>
+<td>C-Shell script</td>
+<td>application&#x2F;x-csh</td>
+</tr>
+<tr>
+<td>.css</td>
+<td>Cascading Style Sheets (CSS)</td>
+<td>text&#x2F;css</td>
+</tr>
+<tr>
+<td>.csv</td>
+<td>Comma-separated values (CSV)</td>
+<td>text&#x2F;csv</td>
+</tr>
+<tr>
+<td>.doc</td>
+<td>Microsoft Word</td>
+<td>application&#x2F;msword</td>
+</tr>
+<tr>
+<td>.docx</td>
+<td>Microsoft Word (OpenXML)</td>
+<td>application&#x2F;vnd.openxmlformats-officedocument.wordprocessingml.document</td>
+</tr>
+<tr>
+<td>.eot</td>
+<td>MS Embedded OpenType fonts</td>
+<td>application&#x2F;vnd.ms-fontobject</td>
+</tr>
+<tr>
+<td>.epub</td>
+<td>Electronic publication (EPUB)</td>
+<td>application&#x2F;epub+zip</td>
+</tr>
+<tr>
+<td>.gif</td>
+<td>Graphics Interchange Format (GIF)</td>
+<td>image&#x2F;gif</td>
+</tr>
+<tr>
+<td>.htm .html</td>
+<td>HyperText Markup Language (HTML)</td>
+<td>text&#x2F;html</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.jar</td>
+<td>Java Archive (JAR)</td>
+<td>application&#x2F;java-archive</td>
+</tr>
+<tr>
+<td>.jpeg .jpg</td>
+<td>JPEG images</td>
+<td>image&#x2F;jpeg</td>
+</tr>
+<tr>
+<td>.js</td>
+<td>JavaScript</td>
+<td>text&#x2F;javascript</td>
+</tr>
+<tr>
+<td>.json</td>
+<td>JSON format</td>
+<td>application&#x2F;json</td>
+</tr>
+<tr>
+<td>.jsonld</td>
+<td>JSON-LD format</td>
+<td>application&#x2F;ld+json</td>
+</tr>
+<tr>
+<td>.mid .midi</td>
+<td>Musical Instrument Digital Interface (MIDI)</td>
+<td>audio&#x2F;midi audio&#x2F;x-midi</td>
+</tr>
+<tr>
+<td>.mjs</td>
+<td>JavaScript module</td>
+<td>text&#x2F;javascript</td>
+</tr>
+<tr>
+<td>.mp3</td>
+<td>MP3 audio</td>
+<td>audio&#x2F;mpeg</td>
+</tr>
+<tr>
+<td>.mpeg</td>
+<td>MPEG Video</td>
+<td>video&#x2F;mpeg</td>
+</tr>
+<tr>
+<td>.mpkg</td>
+<td>Apple Installer Package</td>
+<td>application&#x2F;vnd.apple.installer+xml</td>
+</tr>
+<tr>
+<td>.odp</td>
+<td>OpenDocument presentation document</td>
+<td>application&#x2F;vnd.oasis.opendocument.presentation</td>
+</tr>
+<tr>
+<td>.ods</td>
+<td>OpenDocument spreadsheet document</td>
+<td>application&#x2F;vnd.oasis.opendocument.spreadsheet</td>
+</tr>
+<tr>
+<td>.odt</td>
+<td>OpenDocument text document</td>
+<td>application&#x2F;vnd.oasis.opendocument.text</td>
+</tr>
+<tr>
+<td>.oga</td>
+<td>OGG audio</td>
+<td>audio&#x2F;ogg</td>
+</tr>
+<tr>
+<td>.ogv</td>
+<td>OGG video</td>
+<td>video&#x2F;ogg</td>
+</tr>
+<tr>
+<td>.ogx</td>
+<td>OGG</td>
+<td>application&#x2F;ogg</td>
+</tr>
+<tr>
+<td>.otf</td>
+<td>OpenType font</td>
+<td>font&#x2F;otf</td>
+</tr>
+<tr>
+<td>.png</td>
+<td>Portable Network Graphics</td>
+<td>image&#x2F;png</td>
+</tr>
+<tr>
+<td>.pdf</td>
+<td>Adobe <a target="_blank" rel="noopener" href="https://acrobat.adobe.com/us/en/why-adobe/about-adobe-pdf.html">Portable Document Format</a> (PDF)</td>
+<td>application&#x2F;pdf</td>
+</tr>
+<tr>
+<td>.ppt</td>
+<td>Microsoft PowerPoint</td>
+<td>application&#x2F;vnd.ms-powerpoint</td>
+</tr>
+<tr>
+<td>.pptx</td>
+<td>Microsoft PowerPoint (OpenXML)</td>
+<td>application&#x2F;vnd.openxmlformats-officedocument.presentationml.presentation</td>
+</tr>
+<tr>
+<td>.rar</td>
+<td>RAR archive</td>
+<td>application&#x2F;x-rar-compressed</td>
+</tr>
+<tr>
+<td>.rtf</td>
+<td>Rich Text Format (RTF)</td>
+<td>application&#x2F;rtf</td>
+</tr>
+<tr>
+<td>.sh</td>
+<td>Bourne shell script</td>
+<td>application&#x2F;x-sh</td>
+</tr>
+<tr>
+<td>.svg</td>
+<td>Scalable Vector Graphics (SVG)</td>
+<td>image&#x2F;svg+xml</td>
+</tr>
+<tr>
+<td>.swf</td>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SWF">Small web format</a> (SWF) or Adobe Flash document</td>
+<td>application&#x2F;x-shockwave-flash</td>
+</tr>
+<tr>
+<td>.tar</td>
+<td>Tape Archive (TAR)</td>
+<td>application&#x2F;x-tar</td>
+</tr>
+<tr>
+<td>.tif .tiff</td>
+<td>Tagged Image File Format (TIFF)</td>
+<td>image&#x2F;tiff</td>
+</tr>
+<tr>
+<td>.ttf</td>
+<td>TrueType Font</td>
+<td>font&#x2F;ttf</td>
+</tr>
+<tr>
+<td>.txt</td>
+<td>Text, (generally ASCII or ISO 8859-<em>n</em>)</td>
+<td>text&#x2F;plain</td>
+</tr>
+<tr>
+<td>.vsd</td>
+<td>Microsoft Visio</td>
+<td>application&#x2F;vnd.visio</td>
+</tr>
+<tr>
+<td>.wav</td>
+<td>Waveform Audio Format</td>
+<td>audio&#x2F;wav</td>
+</tr>
+<tr>
+<td>.weba</td>
+<td>WEBM audio</td>
+<td>audio&#x2F;webm</td>
+</tr>
+<tr>
+<td>.webm</td>
+<td>WEBM video</td>
+<td>video&#x2F;webm</td>
+</tr>
+<tr>
+<td>.webp</td>
+<td>WEBP image</td>
+<td>image&#x2F;webp</td>
+</tr>
+<tr>
+<td>.woff</td>
+<td>Web Open Font Format (WOFF)</td>
+<td>font&#x2F;woff</td>
+</tr>
+<tr>
+<td>.woff2</td>
+<td>Web Open Font Format (WOFF)</td>
+<td>font&#x2F;woff2</td>
+</tr>
+<tr>
+<td>.xhtml</td>
+<td>XHTML</td>
+<td>application&#x2F;xhtml+xml</td>
+</tr>
+<tr>
+<td>.xls</td>
+<td>Microsoft Excel</td>
+<td>application&#x2F;vnd.ms-excel</td>
+</tr>
+<tr>
+<td>.xlsx</td>
+<td>Microsoft Excel (OpenXML)</td>
+<td>application&#x2F;vnd.openxmlformats-officedocument.spreadsheetml.sheet</td>
+</tr>
+<tr>
+<td>.xml</td>
+<td>XML</td>
+<td>application&#x2F;xml 代码对普通用户来说不可读 (<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3023#section-3">RFC 3023</a>, section 3) text&#x2F;xml 代码对普通用户来说可读 (<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3023#section-3">RFC 3023</a>, section 3)</td>
+</tr>
+<tr>
+<td>.xul</td>
+<td>XUL</td>
+<td>application&#x2F;vnd.mozilla.xul+xml</td>
+</tr>
+<tr>
+<td>.zip</td>
+<td>ZIP archive</td>
+<td>application&#x2F;zip</td>
+</tr>
+<tr>
+<td>.3gp</td>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/3GP_and_3G2">3GPP</a> audio&#x2F;video container</td>
+<td>video&#x2F;3gpp audio&#x2F;3gpp（若不含视频）</td>
+</tr>
+<tr>
+<td>.3g2</td>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/3GP_and_3G2">3GPP2</a> audio&#x2F;video container</td>
+<td>video&#x2F;3gpp2 audio&#x2F;3gpp2（若不含视频）</td>
+</tr>
+<tr>
+<td>.7z</td>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/7-Zip">7-zip</a> archive</td>
+<td>application&#x2F;x-7z-compressed</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="category-chain-item">前端插件使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/axios/" class="print-no-link">#axios</a>
+      
+        <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="print-no-link">#文件下载</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>axios 封装下载功能</div>
+      <div>https://gitee.com/chergn/chergn.git/96b5147af7a9/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>全易</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/f62d4fd9fc09/" title="计算机的二进制">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机的二进制</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/ac97e402897f/" title="axios取消上一页面的请求">
+                        <span class="hidden-mobile">axios取消上一页面的请求</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="margin-top:100px"> <span>quanyi</span> <i class="iconfont icon-love"></i> <span>hexo</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

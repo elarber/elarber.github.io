@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210706104939857.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.350Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:34.985Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary_large_image">
@@ -285,7 +285,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/2021070610464493.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p><img src="https://img-blog.csdnimg.cn/2021070610464493.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p> 安装 <code>npm install http</code></p>
 </blockquote>
@@ -293,8 +293,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>); <span class="hljs-comment">// 引入nodeJS内置的网络传输协议http模块</span><br><span class="hljs-keyword">const</span> server = http.<span class="hljs-title function_">createServer</span>(); <span class="hljs-comment">//建立服务</span><br><span class="hljs-keyword">const</span> fs=<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>);<br><br><br><span class="hljs-comment">//指定端口号</span><br>server.<span class="hljs-title function_">listen</span>(<span class="hljs-number">9999</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server running at http://127.0.0.1:9999/&#x27;</span>);<br>&#125;);<br><span class="hljs-comment">//事件响应</span><br>server.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;request&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) &#123;<br>  <span class="hljs-comment">//设置响应的头</span><br>  response.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">200</span>,&#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>:<span class="hljs-string">&quot;text/html; charset=utf-8&quot;</span><br>  &#125;);<br>  fs.<span class="hljs-title function_">readFile</span>(<span class="hljs-string">&quot;./index.html&quot;</span>,<span class="hljs-string">&quot;utf-8&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params">err,data</span>)&#123;<br>       <span class="hljs-keyword">if</span>(err) &#123;<br>         <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;index.html loading is failed :&quot;</span>+err);<br>       &#125;<span class="hljs-keyword">else</span>&#123;<br>         response.<span class="hljs-title function_">end</span>(data);  <span class="hljs-comment">//返回index.html页面</span><br>       &#125;<br>   &#125;);<br>&#125;);<br><br></code></pre></td></tr></table></figure>
 
 <p>启动服务看看</p>
-<p><img src="https://img-blog.csdnimg.cn/20210706104919606.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210706104939857.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210706104919606.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/20210706104939857.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -385,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/44e6ecb255c6/" title="hexo 一分钟快速搭建博客文档，真的超方便">
+                      <a href="/e60cc4788716/" title="node 实现简单爬取文字">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo 一分钟快速搭建博客文档，真的超方便</span>
+                        <span class="hidden-mobile">node 实现简单爬取文字</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -395,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/e60cc4788716/" title="node 实现简单爬取文字">
-                        <span class="hidden-mobile">node 实现简单爬取文字</span>
+                      <a href="/f5412bf76f16/" title="node 热更新代码，无需每次重启命令">
+                        <span class="hidden-mobile">node 热更新代码，无需每次重启命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -407,6 +407,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -492,6 +501,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="ttps://img-blog.csdnimg.cn/4b5cfa1ffe2d49f0816cc631d7794c87.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.494Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.066Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary_large_image">
@@ -289,8 +289,8 @@
 
 <h1 id="使用依赖"><a href="#使用依赖" class="headerlink" title="使用依赖"></a>使用依赖</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> viteCompression <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vite-plugin-compression&#x27;</span><br><span class="hljs-keyword">import</span> &#123; defineConfig &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vite&#x27;</span><br><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@vitejs/plugin-vue&#x27;</span><br><br><br><br><span class="hljs-comment">// https://vitejs.dev/config/</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-title function_">vue</span>(),<br>    <span class="hljs-title function_">viteCompression</span>(&#123;<br>      <span class="hljs-attr">filter</span>: <span class="hljs-regexp">/.(js|css|html|json|mjs|png|jpg|jpeg|svg)$/i</span>  <span class="hljs-comment">// 这些文件都要压缩</span><br>    &#125;),<br>  ]<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>npm run build之后你看你的dist目录，会有<code>.gz</code>文件：<br><img src="https://img-blog.csdnimg.cn/17846120dc384590b28d36e9b2511e80.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/4b5cfa1ffe2d49f0816cc631d7794c87.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>npm run build之后你看你的dist目录，会有<code>.gz</code>文件：<br><img src="https://img-blog.csdnimg.cn/17846120dc384590b28d36e9b2511e80.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/4b5cfa1ffe2d49f0816cc631d7794c87.png" srcset="/img/loading.gif" lazyload></p>
 <p>到此前端需要配置的已经完成，需要服务器也配置Gzip</p>
 
                 
@@ -382,9 +382,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/d1592c44f952/" title="vite+vue3初始化项目">
+                      <a href="/ce4fa35b5ad4/" title="vite+vue3项目采用ejs语法配置cdn引入在线依赖">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vite+vue3初始化项目</span>
+                        <span class="hidden-mobile">vite+vue3项目采用ejs语法配置cdn引入在线依赖</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +392,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/13e5be375f0c/" title="vite+vue3配置环境变量">
-                        <span class="hidden-mobile">vite+vue3配置环境变量</span>
+                      <a href="/e5f2e0006e9f/" title="前端原生开发引入高德地图">
+                        <span class="hidden-mobile">前端原生开发引入高德地图</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -404,6 +404,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -489,6 +498,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

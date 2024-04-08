@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2e39e289dc714e689ac93606538673d2.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.494Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.056Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta name="twitter:card" content="summary_large_image">
@@ -285,12 +285,12 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/d0b53af8fd924eed84b9b9e12caebcd0.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p><img src="https://img-blog.csdnimg.cn/d0b53af8fd924eed84b9b9e12caebcd0.png" srcset="/img/loading.gif" lazyload></p>
 <p>放弃冗余代码吧，封装个<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/mixins.html">混入</a></p>
 <h1 id="封装逻辑"><a href="#封装逻辑" class="headerlink" title="封装逻辑"></a>封装逻辑</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 重置表格筛选参数</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> queryReset = &#123;<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-title function_">queryReset</span>(<span class="hljs-params">form, method = <span class="hljs-string">&quot;getData&quot;</span>, fn</span>) &#123;<br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>[form]) &#123;<br>        form = <span class="hljs-string">&quot;queryForm&quot;</span>;<br>      &#125;<br><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">$data</span>[form] = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$options</span>.<span class="hljs-title function_">data</span>()[form];<br><br>      <span class="hljs-variable language_">this</span>[form][<span class="hljs-string">&quot;pageNum&quot;</span>] = <span class="hljs-number">1</span>;<br>      <span class="hljs-variable language_">this</span>[form][<span class="hljs-string">&quot;pageSize&quot;</span>] = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$tableDataSize</span>;<br>      <br>      <span class="hljs-variable language_">this</span>[method]();<br>      <span class="hljs-keyword">if</span> (fn &amp;&amp; <span class="hljs-keyword">typeof</span> fn === <span class="hljs-string">&quot;function&quot;</span>) &#123;<br>        <span class="hljs-title function_">fn</span>()<br>      &#125;<br>    &#125;,<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
-<h1 id="在页面处引入"><a href="#在页面处引入" class="headerlink" title="在页面处引入"></a>在页面处引入</h1><p><img src="https://img-blog.csdnimg.cn/2e39e289dc714e689ac93606538673d2.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="在页面处引入"><a href="#在页面处引入" class="headerlink" title="在页面处引入"></a>在页面处引入</h1><p><img src="https://img-blog.csdnimg.cn/2e39e289dc714e689ac93606538673d2.png" srcset="/img/loading.gif" lazyload></p>
 <p>就图中3步，无需再定义【重置】摁扭的事件</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
 <p>queryReset() 有三个参数：<code>form</code>, <code>method</code>, <code>fn</code></p>
@@ -301,7 +301,7 @@
 </ul>
 </blockquote>
 <p>我有一个习惯，就是每个页面的表格查询方法都叫getData()，所以这个默认getData()了。每个页面表格的查询条件都放在queryForm大对象里了，所以这个默认queryForm。每个表格的查询都有分页的参数pageNum、pageSize</p>
-<p><img src="https://img-blog.csdnimg.cn/31953b19afc2415c995bb7ae99b26adb.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/31953b19afc2415c995bb7ae99b26adb.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -399,9 +399,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ac2c6168586a/" title="vue elementUI封装的无限多级导航菜单(递归循环)">
+                      <a href="/ed47753b2e3f/" title="vue2 使用directives指令注册全局权限指令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue elementUI封装的无限多级导航菜单(递归循环)</span>
+                        <span class="hidden-mobile">vue2 使用directives指令注册全局权限指令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -421,6 +421,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -506,6 +515,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/a580468b795f4ec59d86aa187bd81364.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.493Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.063Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="web">
@@ -294,24 +294,24 @@
 <li>在配置处使用</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">configureWebpack</span>: &#123;<br>    <span class="hljs-attr">plugins</span>: [<br>      <span class="hljs-keyword">new</span> <span class="hljs-title class_">CompressionWebpackPlugin</span>(), <span class="hljs-comment">// 默认的配置就行</span><br>    ],<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
-<p>打包看看，有<code>.gz</code>文件就对了：<br><img src="https://img-blog.csdnimg.cn/a580468b795f4ec59d86aa187bd81364.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>打包看看，有<code>.gz</code>文件就对了：<br><img src="https://img-blog.csdnimg.cn/a580468b795f4ec59d86aa187bd81364.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="代码切片"><a href="#代码切片" class="headerlink" title="代码切片"></a>代码切片</h1><p>使用webpack splitChunks配置将node_modules依赖进行切片，chunk-vendors.js文件就不至于很大。<br>在<strong>vue.config.js</strong>文件配置：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">configureWebpack</span>: &#123;<br>    <span class="hljs-attr">optimization</span>: &#123;<br>     <span class="hljs-attr">runtimeChunk</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-attr">splitChunks</span>: &#123;<br>        <span class="hljs-attr">chunks</span>: <span class="hljs-string">&#x27;all&#x27;</span>,<br>        <span class="hljs-attr">minSize</span>: <span class="hljs-number">1024</span>,<span class="hljs-comment">// 默认超过1k就抽离</span><br>        <span class="hljs-attr">enforceSizeThreshold</span>: <span class="hljs-number">10240</span>,<br>        <span class="hljs-attr">cacheGroups</span>: &#123;<br>          <span class="hljs-comment">//第三方库抽离</span><br>          <span class="hljs-attr">vendor</span>: &#123;<br>            <span class="hljs-attr">test</span>: <span class="hljs-regexp">/node_modules/</span>,<br>            <span class="hljs-title function_">name</span>(<span class="hljs-params"><span class="hljs-variable language_">module</span></span>) &#123;<br>              <span class="hljs-keyword">const</span> pkg = <span class="hljs-variable language_">module</span>.<span class="hljs-property">context</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[\\/]node_modules[\\/](.*?)([\\/]|$)/</span>);<br>              <span class="hljs-keyword">if</span> (!pkg) &#123;<br>                <span class="hljs-keyword">return</span>;<br>              &#125;<br>              <span class="hljs-keyword">return</span> <span class="hljs-string">`npm.<span class="hljs-subst">$&#123;pkg[<span class="hljs-number">1</span>].replace(<span class="hljs-string">&#x27;@&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)&#125;</span>`</span>;<br>            &#125;,<br>          &#125;,<br>        &#125;<br>      &#125;,<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 
-<p>和上面比起来，<strong>vendor-chunks.js</strong>切片了，单个文件没那么大了<br><img src="https://img-blog.csdnimg.cn/77de33858aa042a8afccd644da9b1318.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>和上面比起来，<strong>vendor-chunks.js</strong>切片了，单个文件没那么大了<br><img src="https://img-blog.csdnimg.cn/77de33858aa042a8afccd644da9b1318.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="cdn加载依赖"><a href="#cdn加载依赖" class="headerlink" title="cdn加载依赖"></a>cdn加载依赖</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42618566">https://blog.csdn.net/qq_42618566</a>超简单，就两步</li>
 <li></li>
 </ul>
-<h1 id="自定义封装按需引入"><a href="#自定义封装按需引入" class="headerlink" title="自定义封装按需引入"></a>自定义封装按需引入</h1><p>自定义封装的组件、指令、过滤器，任何东西都千万不要在main.js引入，不要挂载全局！哪里需要哪里import<br><img src="https://img-blog.csdnimg.cn/6c1881e56ddd4a3f8e3efe3612a722fb.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/49d50f06cc3a4bda86f0fc3727b01469.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>像这样：<br><img src="https://img-blog.csdnimg.cn/c7e0b2fd88154a7681cfefc3b3891220.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>尽可能的让<strong>main.js</strong>文件 import最少<br><img src="https://img-blog.csdnimg.cn/626a9d92fff643d68fbb9af725a0ba46.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="自定义封装按需引入"><a href="#自定义封装按需引入" class="headerlink" title="自定义封装按需引入"></a>自定义封装按需引入</h1><p>自定义封装的组件、指令、过滤器，任何东西都千万不要在main.js引入，不要挂载全局！哪里需要哪里import<br><img src="https://img-blog.csdnimg.cn/6c1881e56ddd4a3f8e3efe3612a722fb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://img-blog.csdnimg.cn/49d50f06cc3a4bda86f0fc3727b01469.png" srcset="/img/loading.gif" lazyload><br>像这样：<br><img src="https://img-blog.csdnimg.cn/c7e0b2fd88154a7681cfefc3b3891220.png" srcset="/img/loading.gif" lazyload></p>
+<p>尽可能的让<strong>main.js</strong>文件 import最少<br><img src="https://img-blog.csdnimg.cn/626a9d92fff643d68fbb9af725a0ba46.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="配置tree-shaking-摇树优化"><a href="#配置tree-shaking-摇树优化" class="headerlink" title="配置tree shaking 摇树优化"></a>配置tree shaking 摇树优化</h1><ol>
 <li><p>在<strong>vue.config.js</strong>文件配置：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">configureWebpack</span>: &#123;<br>  <span class="hljs-attr">optimization</span>: &#123;<br>    <span class="hljs-attr">minimize</span>: <span class="hljs-literal">true</span>,<br>     <span class="hljs-comment">// sideEffects和usedExports是两种不同的优化方式。</span><br>     <span class="hljs-attr">usedExports</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 识别无用代码 未使用的导出内容不会被生成 usedExports 依赖于 terser 去检测语句中的副作用。</span><br>     <span class="hljs-comment">// sideEffects: true,  // 开启副作用标识功能 sideEffects更为有效是因为它允许跳过整个模块/文件和整个文件子树。</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>package.json 配置：<code>&quot;sideEffects&quot;: false,</code><br><img src="https://img-blog.csdnimg.cn/b6ed6aa1e5f0433f8fb64d198d14ebd0.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<li><p>package.json 配置：<code>&quot;sideEffects&quot;: false,</code><br><img src="https://img-blog.csdnimg.cn/b6ed6aa1e5f0433f8fb64d198d14ebd0.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ol>
 
@@ -406,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/58116613bf1e/" title="vue2 获取父组件挂载了什么事件">
+                      <a href="/c3e211b2de77/" title="vue2自定义组件：父组件给子组件传值时，属性定义成用横杠隔开">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue2 获取父组件挂载了什么事件</span>
+                        <span class="hidden-mobile">vue2自定义组件：父组件给子组件传值时，属性定义成用横杠隔开</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -416,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/837bd58ed8f4/" title="vue2全局批量注册组件">
-                        <span class="hidden-mobile">vue2全局批量注册组件</span>
+                      <a href="/4ab421345ffc/" title="vue2项目有多个接口请求基路径url地址的配置方式">
+                        <span class="hidden-mobile">vue2项目有多个接口请求基路径url地址的配置方式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -428,6 +428,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -513,6 +522,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

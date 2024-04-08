@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/74a4f06fb41a4195b93003a287a12829.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.490Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.044Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -288,7 +288,7 @@
                 
                 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">var</span> a = [<span class="hljs-string">&quot;13&quot;</span>, <span class="hljs-string">&quot;3123&quot;</span>, <span class="hljs-string">&quot;3131&quot;</span>, <span class="hljs-string">&quot;431321&quot;</span>, <span class="hljs-string">&quot;343123&quot;</span>];</span><br><span class="language-javascript">			<span class="hljs-keyword">var</span> b = [<span class="hljs-string">&quot;343123&quot;</span>, <span class="hljs-string">&quot;13&quot;</span>, <span class="hljs-string">&quot;3123&quot;</span>, <span class="hljs-string">&quot;3131&quot;</span>, <span class="hljs-string">&quot;431321&quot;</span>];</span><br><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// func(a,b)   用a的第一个元素和b的所有元素从左到右依次进行比较，找到相同元素就将a的这个元素和b的这个元素删除掉，接着用a的第二个元素和b的所有元素从左到右依次比较，相同元素就从a和b中删除掉，最后看a和b中 有没有多余的元素</span></span><br><span class="language-javascript">			<span class="hljs-keyword">function</span> <span class="hljs-title function_">same</span>(<span class="hljs-params">aa, bb</span>) &#123;</span><br><span class="language-javascript">				<span class="hljs-keyword">let</span> cc = [...bb];</span><br><span class="language-javascript">				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">in</span> aa) &#123;</span><br><span class="language-javascript">					<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> it <span class="hljs-keyword">in</span> cc) &#123;</span><br><span class="language-javascript">						<span class="hljs-keyword">if</span> (aa[item] === cc[it]) &#123;</span><br><span class="language-javascript">							cc.<span class="hljs-title function_">splice</span>(it, <span class="hljs-number">1</span>)</span><br><span class="language-javascript">							<span class="hljs-comment">// console.log(cc);</span></span><br><span class="language-javascript">						&#125;</span><br><span class="language-javascript">					&#125;</span><br><span class="language-javascript">				&#125;</span><br><span class="language-javascript">				<span class="hljs-keyword">return</span> cc.<span class="hljs-property">length</span> &lt; <span class="hljs-number">1</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">let</span> result = <span class="hljs-title function_">same</span>(a, b);</span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result);</span><br><span class="language-javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/74a4f06fb41a4195b93003a287a12829.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/74a4f06fb41a4195b93003a287a12829.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -381,9 +381,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/f477f5440aae/" title="js 只保留数字为几位数">
+                      <a href="/57e066fd5b27/" title="js 对比数组中最大值或最小值">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js 只保留数字为几位数</span>
+                        <span class="hidden-mobile">js 对比数组中最大值或最小值</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -391,8 +391,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/e0b68b6c78c0/" title="js 合并两个数组【两数组间对应的下标，对应合并】">
-                        <span class="hidden-mobile">js 合并两个数组【两数组间对应的下标，对应合并】</span>
+                      <a href="/8762849e9409/" title="js 对象动态增加属性key">
+                        <span class="hidden-mobile">js 对象动态增加属性key</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -403,6 +403,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -488,6 +497,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

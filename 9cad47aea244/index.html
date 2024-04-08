@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/6c68daee04824fbb8828f695b4504a20.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.489Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.008Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -287,7 +287,7 @@
               <div class="markdown-body">
                 
                 <p><code>Object.defineProperty()</code>的使用</p>
-<p><img src="https://img-blog.csdnimg.cn/6c68daee04824fbb8828f695b4504a20.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/6c68daee04824fbb8828f695b4504a20.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">let</span> people = &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;quanyi&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">position</span>: <span class="hljs-string">&quot;developer&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">age</span>: <span class="hljs-number">18</span></span><br><span class="language-javascript">			&#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(people, <span class="hljs-string">&quot;age&quot;</span>, &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">enumerable</span>: <span class="hljs-literal">false</span>,    <span class="hljs-comment">//  是否出现在对象的枚举属性中</span></span><br><span class="language-javascript">				<span class="hljs-attr">configurable</span>: <span class="hljs-literal">false</span>,  <span class="hljs-comment">// 是否可以被删除</span></span><br><span class="language-javascript">				<span class="hljs-attr">writable</span>: <span class="hljs-literal">false</span>,      <span class="hljs-comment">// 是否可以被修改</span></span><br><span class="language-javascript">				<span class="hljs-comment">// value: 2              // 定义该属性的值</span></span><br><span class="language-javascript">			&#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">			people.<span class="hljs-property">age</span> = <span class="hljs-number">3</span>;</span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(people.<span class="hljs-property">age</span>) <span class="hljs-comment">// 不会被改</span></span><br><span class="language-javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
 
@@ -383,9 +383,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/0bf169047489/" title="js 禁止页面打开查看源码">
+                      <a href="/d2a029ee7654/" title="js 监听屏幕旋转变化（横屏/竖屏）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js 禁止页面打开查看源码</span>
+                        <span class="hidden-mobile">js 监听屏幕旋转变化（横屏/竖屏）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -393,8 +393,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ddf20ddfbdc1/" title="js 获取html dom元素的方式">
-                        <span class="hidden-mobile">js 获取html dom元素的方式</span>
+                      <a href="/2ad54c65eafc/" title="js 批量覆盖元素的原样式">
+                        <span class="hidden-mobile">js 批量覆盖元素的原样式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -405,6 +405,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -490,6 +499,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

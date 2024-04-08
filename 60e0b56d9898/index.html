@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019101300022520.gif">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.492Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.049Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -294,7 +294,7 @@
 
 <p><strong>js：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-title class_">CaseNav</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&#x27;case-nav&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;span&#x27;</span>);<br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Content</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&#x27;content&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&#x27;row&#x27;</span>);<br>  <br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-title class_">CaseNav</span>.<span class="hljs-property">length</span>; i++)&#123;<br>	<span class="hljs-title class_">CaseNav</span>[i].<span class="hljs-property">onclick</span> = <span class="hljs-function">()=&gt;</span>&#123;<br>		<span class="hljs-title class_">Content</span>[i].<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;block&#x27;</span>;<br>	  	<span class="hljs-title class_">CaseNav</span>[i].<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&quot;active&quot;</span>);<br>	  	<span class="hljs-comment">// 遍历所有的Content，让其都隐藏</span><br>	  	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-title class_">Content</span>.<span class="hljs-property">length</span>; j++)&#123;<br>	    	<span class="hljs-title class_">Content</span>[j].<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;none&#x27;</span>;<br>	    	<span class="hljs-title class_">CaseNav</span>[j]..<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&quot;active&quot;</span>);<br>	  	&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>效果：<br><img src="https://img-blog.csdnimg.cn/2019101300022520.gif" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>效果：<br><img src="https://img-blog.csdnimg.cn/2019101300022520.gif" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -387,9 +387,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/6baa271de649/" title="js 进入页面只刷新一次">
+                      <a href="/f14b2739ff9c/" title="js 进入一个页面自动执行触发点击事件">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js 进入页面只刷新一次</span>
+                        <span class="hidden-mobile">js 进入一个页面自动执行触发点击事件</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -397,8 +397,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/dd2ea48f0c40/" title="js 闭包案例">
-                        <span class="hidden-mobile">js 闭包案例</span>
+                      <a href="/6332dffd065d/" title="js 键盘码">
+                        <span class="hidden-mobile">js 键盘码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -409,6 +409,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -494,6 +503,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

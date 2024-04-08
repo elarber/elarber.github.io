@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191019211111599.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.400Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.003Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -286,7 +286,7 @@
             
               <div class="markdown-body">
                 
-                <p>能够查看页面源码的无非就是右击的<code>保存</code>、<code>检查</code>、<code>查看页面源代码</code>和<code>相应的快捷键</code>（Ctrl+S、Ctrl+Shift+I 、Shift+F10和Ctrl+U）<code>F12</code><br><img src="https://img-blog.csdnimg.cn/20191019211111599.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p>能够查看页面源码的无非就是右击的<code>保存</code>、<code>检查</code>、<code>查看页面源代码</code>和<code>相应的快捷键</code>（Ctrl+S、Ctrl+Shift+I 、Shift+F10和Ctrl+U）<code>F12</code><br><img src="https://img-blog.csdnimg.cn/20191019211111599.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>屏蔽F12、Ctrl+U、Ctrl+Shift+I、右击<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<br> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><br><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">   <span class="hljs-comment">//屏蔽键盘事件</span></span><br><span class="language-javascript">   <span class="hljs-variable language_">document</span>.<span class="hljs-property">onkeydown</span> = <span class="hljs-function">(<span class="hljs-params">e</span>)=&gt;</span> &#123;</span><br><span class="language-javascript">    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);</span><br><span class="language-javascript">    <span class="hljs-keyword">if</span> (e.<span class="hljs-property">keyCode</span> == <span class="hljs-number">123</span>) &#123; <span class="hljs-comment">// 屏蔽F12</span></span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((e.<span class="hljs-property">ctrlKey</span>) &amp;&amp; (e.<span class="hljs-property">shiftKey</span>) &amp;&amp; (e.<span class="hljs-property">keyCode</span> == <span class="hljs-number">73</span>)) &#123; <span class="hljs-comment">// 屏蔽Ctrl+Shift+I</span></span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((e.<span class="hljs-property">shiftKey</span>) &amp;&amp; (e.<span class="hljs-property">keyCode</span> == <span class="hljs-number">121</span>)) &#123; <span class="hljs-comment">// 屏蔽Shift+F10</span></span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((e.<span class="hljs-property">ctrlKey</span>) &amp;&amp; (e.<span class="hljs-property">keyCode</span> == <span class="hljs-number">85</span>)) &#123; <span class="hljs-comment">// 屏蔽Ctrl+U</span></span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((e.<span class="hljs-property">ctrlKey</span>) &amp;&amp; (e.<span class="hljs-property">keyCode</span> == <span class="hljs-number">83</span>)) &#123; <span class="hljs-comment">// 屏蔽Ctrl+S</span></span><br><span class="language-javascript">     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">   &#125;;</span><br><span class="language-javascript">   <span class="hljs-comment">//屏蔽鼠标右击</span></span><br><span class="language-javascript">   <span class="hljs-variable language_">document</span>.<span class="hljs-property">oncontextmenu</span> = <span class="hljs-function">()=&gt;</span> &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="language-javascript">   &#125;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"> </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
@@ -381,9 +381,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/d2a029ee7654/" title="js 监听屏幕旋转变化（横屏/竖屏）">
+                      <a href="/2ad54c65eafc/" title="js 批量覆盖元素的原样式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js 监听屏幕旋转变化（横屏/竖屏）</span>
+                        <span class="hidden-mobile">js 批量覆盖元素的原样式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -391,8 +391,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/9cad47aea244/" title="js 禁止修改变量：冻结已有对象的属性：Object.defineProperty()">
-                        <span class="hidden-mobile">js 禁止修改变量：冻结已有对象的属性：Object.defineProperty()</span>
+                      <a href="/65ebac4c8c5a/" title="js 获取元素属性的值  ||  设置元素属性的值  ||  移除属性 || 增删改查类名">
+                        <span class="hidden-mobile">js 获取元素属性的值  ||  设置元素属性的值  ||  移除属性 || 增删改查类名</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -403,6 +403,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -488,6 +497,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

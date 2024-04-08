@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200606104159360.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.493Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.063Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="web">
@@ -290,7 +290,7 @@
 <li>在项目目录下执行安装命令：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> <span class="hljs-keyword">less</span>-loader --save-dev<br></code></pre></td></tr></table></figure>
 如图：<br><img src="https://img-blog.csdnimg.cn/20200606104159360.png" srcset="/img/loading.gif" lazyload alt="vue项目里安装配置less【使用报错处理】"></li>
 </ol>
-<p>在<code>.vue</code>文件的<code>style</code>标签上就能用<code>lang=&quot;less&quot;</code>了<br><img src="https://img-blog.csdnimg.cn/20210326162246780.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>但是如果要是使用单独的.less文件，需要在<code>build/webpack.base.conf.js</code>文件里配置：</p>
+<p>在<code>.vue</code>文件的<code>style</code>标签上就能用<code>lang=&quot;less&quot;</code>了<br><img src="https://img-blog.csdnimg.cn/20210326162246780.png" srcset="/img/loading.gif" lazyload><br>但是如果要是使用单独的.less文件，需要在<code>build/webpack.base.conf.js</code>文件里配置：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmake">&#123;<br>    <span class="hljs-keyword">test</span>: /\.<span class="hljs-keyword">less</span>$/,<br>    loader: <span class="hljs-string">&quot;style-loader!css-loader!less-loader&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>如图：<br><img src="https://img-blog.csdnimg.cn/20200606104655279.png" srcset="/img/loading.gif" lazyload alt="vue项目里安装配置less【使用报错处理】"></p>
 <hr>
@@ -395,9 +395,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/f51148977324/" title="vue项目 config目录下的index文件配置">
+                      <a href="/93056c3189eb/" title="vue加载进度条   插件vue-nprogress的使用方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue项目 config目录下的index文件配置</span>
+                        <span class="hidden-mobile">vue加载进度条   插件vue-nprogress的使用方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -417,6 +417,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -502,6 +511,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

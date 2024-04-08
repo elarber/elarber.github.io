@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/direct/45c2edf01fd64060baf3a9dccbc49f3e.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/direct/0e852f02802141f7bc5714d4e0d505bd.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T11:03:50.606Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.066Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="github">
@@ -291,15 +291,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h1><p>在电脑用户的目录下打开终端执行 <code>ssh-keygen -t rsa</code>:<br><img src="https://img-blog.csdnimg.cn/direct/1dea164e4a4340b18ad33290f7bb4ac5.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>执行完不要关</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>看看用户的目录里 .ssh 目录：<br><img src="https://img-blog.csdnimg.cn/direct/39287052606a44f9909319f51b9c06dd.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <h1 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h1><p>在电脑用户的目录下打开终端执行 <code>ssh-keygen -t rsa</code>:<br><img src="https://img-blog.csdnimg.cn/direct/1dea164e4a4340b18ad33290f7bb4ac5.png" srcset="/img/loading.gif" lazyload><br>执行完不要关</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>看看用户的目录里 .ssh 目录：<br><img src="https://img-blog.csdnimg.cn/direct/39287052606a44f9909319f51b9c06dd.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Host github<span class="hljs-selector-class">.com</span><br>  Hostname ssh<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span><br>  Port <span class="hljs-number">443</span><br></code></pre></td></tr></table></figure>
 
 
 
-<h1 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h1><p>复制 id_rsa.pub 文件里的内容<br><img src="https://img-blog.csdnimg.cn/direct/a94dd3694c924c8b973af9885cec6553.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>粘贴到 github上<br><img src="https://img-blog.csdnimg.cn/direct/e5df068f1ca94534b49da077b80553e2.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/direct/45c2edf01fd64060baf3a9dccbc49f3e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<h1 id="连接密钥"><a href="#连接密钥" class="headerlink" title="连接密钥"></a>连接密钥</h1><p>回到刚才的终端执行 <code>ssh -T git@github.com</code><br><img src="https://img-blog.csdnimg.cn/direct/0e852f02802141f7bc5714d4e0d505bd.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h1><p>复制 id_rsa.pub 文件里的内容<br><img src="https://img-blog.csdnimg.cn/direct/a94dd3694c924c8b973af9885cec6553.png" srcset="/img/loading.gif" lazyload></p>
+<p>粘贴到 github上<br><img src="https://img-blog.csdnimg.cn/direct/e5df068f1ca94534b49da077b80553e2.png" srcset="/img/loading.gif" lazyload><br><img src="https://img-blog.csdnimg.cn/direct/45c2edf01fd64060baf3a9dccbc49f3e.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="连接密钥"><a href="#连接密钥" class="headerlink" title="连接密钥"></a>连接密钥</h1><p>回到刚才的终端执行 <code>ssh -T git@github.com</code><br><img src="https://img-blog.csdnimg.cn/direct/0e852f02802141f7bc5714d4e0d505bd.png" srcset="/img/loading.gif" lazyload></p>
 <p>成功了</p>
 
                 
@@ -415,6 +415,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -500,6 +509,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

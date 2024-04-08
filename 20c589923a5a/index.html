@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201027111756972.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.493Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.056Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -293,7 +293,7 @@
 <p><img src="https://img-blog.csdnimg.cn/20191022144134455.gif" srcset="/img/loading.gif" lazyload alt="js 原生AJAX请求数据"><br><img src="https://img-blog.csdnimg.cn/20191022150127916.png" srcset="/img/loading.gif" lazyload alt="js 原生AJAX请求数据"></p>
 <p>拓展：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35861727/article/details/78809986">https://blog.csdn.net/sinat_35861727&#x2F;article&#x2F;details&#x2F;78809986</a></p>
 <hr>
-<p>第二种：js原生fatch函数<br><img src="https://img-blog.csdnimg.cn/2021042517363140.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>第二种：js原生fatch函数<br><img src="https://img-blog.csdnimg.cn/2021042517363140.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>获取token<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.btn&quot;</span>);</span><br><span class="language-javascript">			btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">				<span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://mamsc.sgcc.com/router/aaaaaa&#x27;</span>, &#123;</span><br><span class="language-javascript">					<span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,</span><br><span class="language-javascript">					<span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;</span><br><span class="language-javascript">						<span class="hljs-attr">key</span>: <span class="hljs-string">&quot;8e15edc35cb68460d4jn08b840f62791&quot;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">serviceId</span>: <span class="hljs-string">&quot;55442aaea86f7bb410a77326770e24be&quot;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">account</span>: <span class="hljs-string">&quot;13611260499&quot;</span>,</span><br><span class="language-javascript">						<span class="hljs-attr">password</span>: <span class="hljs-string">&quot;BD2B1D3B0A688CE2130A0BB2802195E3&quot;</span></span><br><span class="language-javascript">					&#125;),</span><br><span class="language-javascript">					<span class="hljs-attr">headers</span>: &#123;</span><br><span class="language-javascript">						<span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/x-www-form-urlencoded; application/json; text/plain; charset=UTF-8&quot;</span>,</span><br><span class="language-javascript">					&#125;,</span><br><span class="language-javascript">				&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="language-javascript">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res)</span><br><span class="language-javascript">				&#125;);</span><br><span class="language-javascript">			&#125;</span><br><span class="language-javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="https://img-blog.csdnimg.cn/20201027111756972.png#pic_center" srcset="/img/loading.gif" lazyload alt="js原生fatch函数"></p>
@@ -390,9 +390,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/03eed8159265/" title="js 原生最简单简洁的打印">
+                      <a href="/39e9feacba7f/" title="js 删除、添加数组值：splice（）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js 原生最简单简洁的打印</span>
+                        <span class="hidden-mobile">js 删除、添加数组值：splice（）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -412,6 +412,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -497,6 +506,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

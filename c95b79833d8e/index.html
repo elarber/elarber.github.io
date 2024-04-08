@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/14400795f53048c0bdba7cb3fbd1af62.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.490Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.044Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -287,7 +287,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/14400795f53048c0bdba7cb3fbd1af62.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p><img src="https://img-blog.csdnimg.cn/14400795f53048c0bdba7cb3fbd1af62.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;!<span class="hljs-variable constant_">DOCTYPE</span> html&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="language-xml">	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="language-xml">		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="language-xml">		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>数组切片<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="language-xml">	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="language-xml">	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="language-xml">		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;dataSplite()&quot;</span>&gt;</span>切片<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"></span><br><span class="language-xml">		<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">			<span class="hljs-keyword">function</span> <span class="hljs-title function_">dataSplite</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">let</span> data = []; <span class="hljs-comment">// 准备假数据</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">105</span>; i++) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					data.<span class="hljs-title function_">push</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-attr">id</span>: i,</span></span><br><span class="language-javascript"><span class="language-xml">						<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;🍊&quot;</span> + i,</span></span><br><span class="language-javascript"><span class="language-xml">					&#125;)</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 梳理逻辑</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(0, 10))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(10, 20))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(20, 30))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(30, 40))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(40, 50))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(50, 60))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(60, 70))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(70, 80))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(80, 90))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(90, 100))</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// splitedData.push(data.slice(100, data.length))</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">const</span> max = <span class="hljs-number">10</span>; <span class="hljs-comment">// 每片多少</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">const</span> length = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>(data.<span class="hljs-property">length</span> / max); <span class="hljs-comment">// 一共几片</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-comment">// 处理切片</span></span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">let</span> splitedData = [];</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>; index &lt; length; index++) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">					<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(index * max, index * max + max);</span></span><br><span class="language-javascript"><span class="language-xml">					splitedData.<span class="hljs-title function_">push</span>(data.<span class="hljs-title function_">slice</span>(index * max, index * max + max))</span></span><br><span class="language-javascript"><span class="language-xml">				&#125;</span></span><br><span class="language-javascript"><span class="language-xml">				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(splitedData);</span></span><br><span class="language-javascript"><span class="language-xml">			&#125;</span></span><br><span class="language-javascript"><span class="language-xml">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml">	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 
@@ -385,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/42c9748e2d35/" title="js循环中break关键字和continue关键字">
+                      <a href="/85b4bd1494d8/" title="js柯里化函数">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js循环中break关键字和continue关键字</span>
+                        <span class="hidden-mobile">js柯里化函数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -395,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/85b4bd1494d8/" title="js柯里化函数">
-                        <span class="hidden-mobile">js柯里化函数</span>
+                      <a href="/afe8a05fde01/" title="web Worker前端多线程任务执行">
+                        <span class="hidden-mobile">web Worker前端多线程任务执行</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -407,6 +407,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -492,6 +501,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

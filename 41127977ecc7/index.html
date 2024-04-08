@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210224132619745.gif">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.494Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.056Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue2">
 <meta property="article:tag" content="vue">
@@ -287,7 +287,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/20210224132619745.gif#pic_center" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p><img src="https://img-blog.csdnimg.cn/20210224132619745.gif#pic_center" srcset="/img/loading.gif" lazyload></p>
 <h4 id="html："><a href="#html：" class="headerlink" title="html："></a>html：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-table</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;mini&quot;</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">&quot;eventSetings&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">el-table-column</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;消费金额&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">el-input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;scope.row.money&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;mini&quot;</span> /&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">el-table-column</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">el-table-column</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;减免金额&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">el-input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;scope.row.reduce&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;mini&quot;</span> /&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">el-table-column</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">el-table-column</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;header&quot;</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;addEventSet&quot;</span>&gt;</span>添 加<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span></span><br><span class="hljs-tag">         <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;mini&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;danger&quot;</span></span><br><span class="hljs-tag">         @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;deleteEventSet(scope.$index, scope.row)&quot;</span></span><br><span class="hljs-tag">         &gt;</span>删除&lt;/el-button<br>       &gt;<br>     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">el-table-column</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">el-table</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="js："><a href="#js：" class="headerlink" title="js："></a>js：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 数据部分</span><br><span class="hljs-attr">eventSetings</span>: [<br>  &#123;<br>    <span class="hljs-attr">money</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">reduce</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  &#125;,<br>]<br><br><br><br><br><br><span class="hljs-comment">// 逻辑部分</span><br><span class="hljs-comment">// 添加</span><br><span class="hljs-title function_">addEventSet</span>(<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-variable language_">this</span>.<span class="hljs-property">eventSetings</span>.<span class="hljs-title function_">push</span>(&#123;<br>     <span class="hljs-attr">money</span>: <span class="hljs-string">&quot;&quot;</span>,<br>     <span class="hljs-attr">reduce</span>: <span class="hljs-string">&quot;&quot;</span>,<br>   &#125;);<br> &#125;,<br> <span class="hljs-comment">// 删除</span><br> <span class="hljs-title function_">deleteEventSet</span>(<span class="hljs-params">index, data</span>) &#123;<br>   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(index, data);<br>   <span class="hljs-variable language_">this</span>.<span class="hljs-property">eventSetings</span>.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>);<br> &#125;,<br></code></pre></td></tr></table></figure>
@@ -406,8 +406,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ed47753b2e3f/" title="vue2 使用directives指令注册全局权限指令">
-                        <span class="hidden-mobile">vue2 使用directives指令注册全局权限指令</span>
+                      <a href="/ac2c6168586a/" title="vue elementUI封装的无限多级导航菜单(递归循环)">
+                        <span class="hidden-mobile">vue elementUI封装的无限多级导航菜单(递归循环)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -418,6 +418,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -503,6 +512,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

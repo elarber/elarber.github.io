@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210326164046503.png">
 <meta property="article:published_time" content="2024-04-05T11:09:25.555Z">
-<meta property="article:modified_time" content="2024-04-05T11:09:59.099Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.066Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="微信支付">
 <meta property="article:tag" content="微信支付分">
@@ -291,21 +291,21 @@
 <ol>
 <li><a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_5.shtml">查询授权情况</a><br>后端调用返回给你</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20210326160510267.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210326160510267.png" srcset="/img/loading.gif" lazyload></p>
 <ol start="2">
 <li><a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_2.shtml">拿支付分的预授权 token</a><br>后端调用返回给你</li>
 </ol>
-<p><img src="https://img-blog.csdnimg.cn/20210326160452231.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210326160452231.png" srcset="/img/loading.gif" lazyload></p>
 <ol start="3">
 <li>去预授权<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">uni.<span class="hljs-title function_">navigateToMiniProgram</span>(&#123;<br>	<span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;wxd8f3793ea3b935b8&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>	<span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;pages/use/enable&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>	<span class="hljs-attr">extraData</span>: &#123;<br>		<span class="hljs-attr">apply_permissions_token</span>: res.<span class="hljs-property">data</span>  <span class="hljs-comment">// res.data是第2步给的token</span><br>	&#125;,<br>	<span class="hljs-title function_">success</span>(<span class="hljs-params"></span>) &#123;<br>		<span class="hljs-comment">// 此处是跳转支付分授权页面成功，不是授权成功</span><br>	&#125;<br>&#125;);<br></code></pre></td></tr></table></figure></li>
 </ol>
-<p>贴出我的相关代码：<br><img src="https://img-blog.csdnimg.cn/20210326155943988.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>贴出我的相关代码：<br><img src="https://img-blog.csdnimg.cn/20210326155943988.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 查询支付分授权情况</span><br><span class="hljs-title function_">queryPayCreditAuthorization</span>(<span class="hljs-params"></span>) &#123;<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">useElectricityBTNdisabled</span> = <span class="hljs-literal">true</span>;<br>	<span class="hljs-variable language_">this</span>.<span class="hljs-property">usePayCredit</span> = <span class="hljs-literal">true</span>;<br>	<span class="hljs-variable language_">this</span>.$request(<span class="hljs-string">&quot;/wechat/payScore/getPermissionsByOpenid&quot;</span>, <span class="hljs-string">&quot;POST&quot;</span>, &#123;<br>		<span class="hljs-attr">userId</span>: uni.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&quot;openId&quot;</span>)<br>	&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;授权情况：&quot;</span>, res);<br>		<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>.<span class="hljs-property">status</span> === <span class="hljs-number">200</span>) &#123;<br>			<span class="hljs-comment">// 未授权</span><br>			<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>.<span class="hljs-property">returnStr</span>.<span class="hljs-property">authorization_state</span> === <span class="hljs-string">&quot;UNAVAILABLE&quot;</span>) &#123;<br>				<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">authorizationPayCredit</span>();<br>			&#125;<br>			<span class="hljs-comment">// 已授权</span><br>			<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>.<span class="hljs-property">returnStr</span>.<span class="hljs-property">authorization_state</span> === <span class="hljs-string">&quot;AVAILABLE&quot;</span>) &#123;<br>				<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">portISUsed</span>();<br>			&#125;<br>		&#125;;<br>		<span class="hljs-comment">// 无授权记录</span><br>		<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>.<span class="hljs-property">status</span> === <span class="hljs-number">404</span>) &#123;<br>			<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">authorizationPayCredit</span>();<br>		&#125;<br>		<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>.<span class="hljs-property">status</span> !== <span class="hljs-number">200</span>) &#123;<br>			uni.<span class="hljs-title function_">showToast</span>(&#123;<br>				<span class="hljs-attr">title</span>: res.<span class="hljs-property">data</span>.<span class="hljs-property">returnStr</span>.<span class="hljs-property">message</span>,<br>				<span class="hljs-attr">icon</span>: <span class="hljs-string">&quot;none&quot;</span><br>			&#125;)<br>		&#125;<br>	&#125;);<br>&#125;,<br><span class="hljs-comment">// 拿支付分的预授权 token</span><br><span class="hljs-title function_">authorizationPayCredit</span>(<span class="hljs-params"></span>) &#123;<br>	<span class="hljs-keyword">const</span> that = <span class="hljs-variable language_">this</span>;<br>	<span class="hljs-variable language_">this</span>.$request(<span class="hljs-string">&quot;/wechat/payScore/permissions&quot;</span>, <span class="hljs-string">&quot;POST&quot;</span>, &#123;<br>		<span class="hljs-attr">userId</span>: uni.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&quot;openId&quot;</span>)<br>	&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br>		<span class="hljs-comment">// 去预授权</span><br>		uni.<span class="hljs-title function_">navigateToMiniProgram</span>(&#123;<br>			<span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;wxd8f3793ea3b935b8&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>			<span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;pages/use/enable&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>			<span class="hljs-attr">extraData</span>: &#123;<br>				<span class="hljs-attr">apply_permissions_token</span>: res.<span class="hljs-property">data</span><br>			&#125;,<br>			<span class="hljs-title function_">success</span>(<span class="hljs-params"></span>) &#123;<br>				that.<span class="hljs-property">useElectricityBTNdisabled</span> = <span class="hljs-literal">false</span>;<br>			&#125;<br>		&#125;);<br>	&#125;)<br>&#125;,<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210326172420357.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210326172420357.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
-<p>剩下就是解除授权、退款之类的，由后端调用<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_14.shtml">微信的公共API</a>，然后返回给你：<br><img src="https://img-blog.csdnimg.cn/20210326160829399.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>查看支付分订单详情需要<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_25.shtml">前端调</a>：<br><img src="https://img-blog.csdnimg.cn/20210326161330686.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>剩下就是解除授权、退款之类的，由后端调用<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_14.shtml">微信的公共API</a>，然后返回给你：<br><img src="https://img-blog.csdnimg.cn/20210326160829399.png" srcset="/img/loading.gif" lazyload><br>查看支付分订单详情需要<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter6_1_25.shtml">前端调</a>：<br><img src="https://img-blog.csdnimg.cn/20210326161330686.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">uni.<span class="hljs-title function_">navigateToMiniProgram</span>(&#123;<br>	<span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;wxd8f3793ea3b935b8&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>	<span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;pages/record/detail&#x27;</span>, <span class="hljs-comment">// 固定就这么写</span><br>	<span class="hljs-attr">extraData</span>: res.<span class="hljs-property">data</span>  <span class="hljs-comment">// res.data是后端给的参数</span><br>&#125;);<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210326164046503.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210326164046503.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -420,6 +420,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -505,6 +514,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

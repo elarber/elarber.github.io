@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/direct/f807585b5b564daa8dc1234f0a1ec409.png">
 <meta property="article:published_time" content="2024-03-28T11:26:47.878Z">
-<meta property="article:modified_time" content="2024-04-05T10:56:06.915Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.079Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="uniapp">
 <meta property="article:tag" content="微信小程序">
@@ -286,11 +286,11 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/direct/f807585b5b564daa8dc1234f0a1ec409.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+                <p><img src="https://img-blog.csdnimg.cn/direct/f807585b5b564daa8dc1234f0a1ec409.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="全局请求封装"><a href="#全局请求封装" class="headerlink" title="全局请求封装"></a>全局请求封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">http</span>(<span class="hljs-params">path, params = &#123;&#125;, loading = <span class="hljs-literal">true</span>, method = <span class="hljs-string">&quot;POST&quot;</span></span>) &#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;%c请求拦截：&#x27;</span>, <span class="hljs-string">&#x27; background:orange&#x27;</span>, params);<br>	<span class="hljs-keyword">if</span> (loading) &#123;<br>		uni.<span class="hljs-title function_">showLoading</span>(&#123;<br>			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;加载中&quot;</span>,<br>			<span class="hljs-attr">mask</span>: <span class="hljs-literal">true</span><br>		&#125;);<br>	&#125;;<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>		uni.<span class="hljs-title function_">request</span>(&#123;<br>			<span class="hljs-attr">header</span>: &#123;<br>				<span class="hljs-title class_">Authorization</span>: uni.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&quot;Authorization&quot;</span>) || <span class="hljs-string">&quot;&quot;</span><br>			&#125;,<br>			<span class="hljs-attr">url</span>: <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-property">env</span>.<span class="hljs-property">VITE_BASE_URL</span> + path,<br>			method,<br>			<span class="hljs-attr">data</span>: params,<br>			<span class="hljs-keyword">async</span> <span class="hljs-title function_">success</span>(<span class="hljs-params">res</span>) &#123;<br>				uni.<span class="hljs-title function_">hideLoading</span>();<br>				<span class="hljs-title function_">resolve</span>(res.<span class="hljs-property">data</span>);<br>				<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;响应拦截：&#x27;</span>, path, params, res.<span class="hljs-property">data</span>);<br>				<span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>?.<span class="hljs-property">code</span> !== <span class="hljs-number">0</span>) &#123;<br>					uni.<span class="hljs-title function_">showToast</span>(&#123;<br>						<span class="hljs-attr">icon</span>: <span class="hljs-string">&quot;error&quot;</span>,<br>						<span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,<br>						<span class="hljs-attr">title</span>: res.<span class="hljs-property">data</span>.<span class="hljs-property">msg</span><br>					&#125;);<br>				&#125;<br><br>			&#125;,<br>			<span class="hljs-title function_">fail</span>(<span class="hljs-params">err</span>) &#123;<br>				uni.<span class="hljs-title function_">hideLoading</span>();<br>				uni.<span class="hljs-title function_">reLaunch</span>(&#123;<br>					<span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/pages/status/service/error&quot;</span><br>				&#125;)<br>				<span class="hljs-title function_">reject</span>(err);<br>			&#125;,<br>			<span class="hljs-title function_">complete</span>(<span class="hljs-params"></span>) &#123;<br>				<span class="hljs-comment">// uni.hideLoading();    // 在showToast之前执行会受影响</span><br>			&#125;<br>		&#125;);<br>	&#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<h1 id="局部业务接口封装"><a href="#局部业务接口封装" class="headerlink" title="局部业务接口封装"></a>局部业务接口封装</h1><p><img src="https://img-blog.csdnimg.cn/direct/a9fb2190e1a94161a6ecdde3ee802ab6.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<h1 id="使用接口"><a href="#使用接口" class="headerlink" title="使用接口"></a>使用接口</h1><p><img src="https://img-blog.csdnimg.cn/direct/791392cabd4a48e7b0b747b418eec615.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="局部业务接口封装"><a href="#局部业务接口封装" class="headerlink" title="局部业务接口封装"></a>局部业务接口封装</h1><p><img src="https://img-blog.csdnimg.cn/direct/a9fb2190e1a94161a6ecdde3ee802ab6.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="使用接口"><a href="#使用接口" class="headerlink" title="使用接口"></a>使用接口</h1><p><img src="https://img-blog.csdnimg.cn/direct/791392cabd4a48e7b0b747b418eec615.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -405,6 +405,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -490,6 +499,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

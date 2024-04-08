@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210203110909566.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.490Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.044Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -304,7 +304,7 @@
 <h5 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h5><p>用于查找数组中第一个满足条件的元素，并返回</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>js find<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">var</span> array=[<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">52</span>,<span class="hljs-number">1</span>];</span><br><span class="language-javascript">			</span><br><span class="language-javascript">			<span class="hljs-keyword">var</span> result=array.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">i</span>)=&gt;</span>&#123; <span class="hljs-comment">// i相当于遍历的每条array的下标</span></span><br><span class="language-javascript">				<span class="hljs-keyword">return</span> i&gt;<span class="hljs-number">2</span>; <span class="hljs-comment">// 需返回满足条件</span></span><br><span class="language-javascript">			&#125;);</span><br><span class="language-javascript">			</span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(array);</span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result);</span><br><span class="language-javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210329111909816.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210329111909816.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
 <blockquote>
 <h5 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h5><p>用于过滤数组所有满足条件的元素，并返回<br>和every()有些像，但那是返回 ture或false，而filter()是返回<strong>符合条件的数组</strong></p>
@@ -324,7 +324,7 @@
 <h5 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h5><p>用于累加计算，返回结果<br>接收两个参数：function和params。function有有四个参数total, now, index, array。total是前值和后值得累加值，now是当前值，index索引，array数组自身。后两个非必传。params非必传，传递给函数的初始值</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> array=[<span class="hljs-number">86</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">52</span>,<span class="hljs-number">1</span>,<span class="hljs-number">55</span>];</span><br><span class="language-javascript"></span><br><span class="language-javascript">		<span class="hljs-keyword">var</span> result=array.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">total, now, index, array</span>)=&gt;</span>&#123;</span><br><span class="language-javascript">		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(total, now, index, array);</span><br><span class="language-javascript">			<span class="hljs-keyword">return</span> total + now;</span><br><span class="language-javascript">		&#125;);</span><br><span class="language-javascript">		</span><br><span class="language-javascript">		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result);</span><br><span class="language-javascript">	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210203110909566.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210203110909566.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
 <h2 id="更多：https-www-runoob-com-jsref-jsref-obj-array-html"><a href="#更多：https-www-runoob-com-jsref-jsref-obj-array-html" class="headerlink" title="更多：https://www.runoob.com/jsref/jsref-obj-array.html"></a>更多：<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/jsref-obj-array.html">https://www.runoob.com/jsref/jsref-obj-array.html</a></h2>
                 
@@ -440,6 +440,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -525,6 +534,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

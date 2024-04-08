@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/16e9b5badc0641f49e027b97c29c989b.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.494Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.066Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,7 @@
 <p>看到<code>ViteEjsPlugin(ejsData)</code>了吗，就是这个方法，把你定义的ejsData变量暴露到了index.html文件</p>
 <h1 id="使用数据"><a href="#使用数据" class="headerlink" title="使用数据"></a>使用数据</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh-cn&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/logo.png&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= ENV.VITE_APP_TITLE %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>      &lt;% for (let path of CDNs.css) &#123; %&gt;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= path %&gt;&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preload&quot;</span> <span class="hljs-attr">as</span>=<span class="hljs-string">&quot;style&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= path %&gt;&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> /&gt;</span><br>      &lt;% &#125; %&gt;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/src/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    &lt;% for (let path of CDNs.js) &#123; %&gt;<br>      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%= path %&gt;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    &lt;% &#125; %&gt;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 <p>看到了吗？<code>ENV.VITE_APP_TITLE</code>和<code>CDNs.css    、    CDNs.js</code>都是<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vite-plugin-ejs">ejs</a>暴露出来的，采用<a target="_blank" rel="noopener" href="https://ejs.bootcss.com/">ejs</a>循环CDNs的数据即可</p>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://img-blog.csdnimg.cn/16e9b5badc0641f49e027b97c29c989b.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://img-blog.csdnimg.cn/16e9b5badc0641f49e027b97c29c989b.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -385,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/6d0a34c28626/" title="Web Components 原生开发使html组件化模块化">
+                      <a href="/475422dd8cf8/" title="前端图片裁剪 cropperjs的简单使用">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Web Components 原生开发使html组件化模块化</span>
+                        <span class="hidden-mobile">前端图片裁剪 cropperjs的简单使用</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -395,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/9b78ab5fd249/" title="html HTML5语义化标签">
-                        <span class="hidden-mobile">html HTML5语义化标签</span>
+                      <a href="/f2da943a56bb/" title="vite+vue3配置Gzip打包压缩性能优化">
+                        <span class="hidden-mobile">vite+vue3配置Gzip打包压缩性能优化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -407,6 +407,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -492,6 +501,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/b26e1c3cdbe94f149784d8e6775cfee1.png">
 <meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-05T10:55:52.490Z">
+<meta property="article:modified_time" content="2024-04-06T08:45:35.045Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="javascript">
@@ -287,7 +287,7 @@
               <div class="markdown-body">
                 
                 <p>如果只是希望一个对象原有的属性值可以修改，但是不能添加或者删除属性，<code>Object.seal()</code>能够帮我们做到</p>
-<p><img src="https://img-blog.csdnimg.cn/b26e1c3cdbe94f149784d8e6775cfee1.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/b26e1c3cdbe94f149784d8e6775cfee1.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Object.seal<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">let</span> people = &#123;</span><br><span class="language-javascript">				<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;quanyi&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">position</span>: <span class="hljs-string">&quot;developer&quot;</span>,</span><br><span class="language-javascript">				<span class="hljs-attr">age</span>: <span class="hljs-number">18</span></span><br><span class="language-javascript">			&#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">seal</span>(people);</span><br><span class="language-javascript">			people.<span class="hljs-property">age</span> = <span class="hljs-number">12</span>; <span class="hljs-comment">// 可以修改f</span></span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(people.<span class="hljs-property">age</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">			<span class="hljs-keyword">delete</span> people.<span class="hljs-property">position</span>;</span><br><span class="language-javascript">			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(people.<span class="hljs-property">position</span>); <span class="hljs-comment">// 还在，删不了</span></span><br><span class="language-javascript">		</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
 
@@ -404,6 +404,15 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
@@ -489,6 +498,12 @@
 
     
 
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+        </div>
+      </div>
     
   </main>
 

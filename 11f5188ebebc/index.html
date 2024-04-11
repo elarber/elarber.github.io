@@ -16,26 +16,26 @@
   <meta name="author" content="全易">
   <meta name="keywords" content="全易,全易的个人博客,全易的技术博客,前端开发全易,大前端,web前端,小程序开发技术">
   
-    <meta name="description" content="安装 npm install http  server.js写入以下内容： 123456789101112131415161718192021222324const http &#x3D; require(&amp;#x27;http&amp;#x27;); &#x2F;&#x2F; 引入nodeJS内置的网络传输协议http模块const server &#x3D; http.createServer(); &#x2F;&#x2F;建立服务const fs&#x3D;req">
+    <meta name="description" content="和js一样，基本所有语法都是可以使用的。node本身就是js嘛，小区别就在于有个别部分的对象是面向浏览器的api，在node环境就不能用了，因为node是服务器端，在服务环境下新增了其他api搭配各类插件即可开发  __filename表示当前正在执行的脚本的文件名。它将输出文件所在位置的绝对路径，且和命令行参数所指定的文件名不一定相同。 如果在模块中，返回的值是模块文件的路径。  __dirn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node 建立本地服务">
-<meta property="og:url" content="https://gitee.com/chergn/chergn.git/a11b74027a0a/index.html">
+<meta property="og:title" content="Node.js 全局对象">
+<meta property="og:url" content="https://gitee.com/chergn/chergn.git/11f5188ebebc/index.html">
 <meta property="og:site_name" content="美酒没故事">
-<meta property="og:description" content="安装 npm install http  server.js写入以下内容： 123456789101112131415161718192021222324const http &#x3D; require(&amp;#x27;http&amp;#x27;); &#x2F;&#x2F; 引入nodeJS内置的网络传输协议http模块const server &#x3D; http.createServer(); &#x2F;&#x2F;建立服务const fs&#x3D;req">
+<meta property="og:description" content="和js一样，基本所有语法都是可以使用的。node本身就是js嘛，小区别就在于有个别部分的对象是面向浏览器的api，在node环境就不能用了，因为node是服务器端，在服务环境下新增了其他api搭配各类插件即可开发  __filename表示当前正在执行的脚本的文件名。它将输出文件所在位置的绝对路径，且和命令行参数所指定的文件名不一定相同。 如果在模块中，返回的值是模块文件的路径。  __dirn">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210706104939857.png">
-<meta property="article:published_time" content="2024-03-28T12:33:29.758Z">
-<meta property="article:modified_time" content="2024-04-06T08:45:34.985Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411233910560.png">
+<meta property="article:published_time" content="2024-04-11T15:10:04.375Z">
+<meta property="article:modified_time" content="2024-04-11T16:37:21.523Z">
 <meta property="article:author" content="全易">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210706104939857.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411233910560.png">
   
   
   
     <meta name="referrer" content="no-referrer" />
   
-  <title>node 建立本地服务 - 美酒没故事</title>
+  <title>Node.js 全局对象 - 美酒没故事</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="node 建立本地服务"></span>
+            <span id="subtitle" data-typed-text="Node.js 全局对象"></span>
           
         </div>
 
@@ -218,13 +218,6 @@
   <div class="mt-3">
     
     
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-28 20:33" pubdate>
-          2024年3月28日 晚上
-        </time>
-      </span>
-    
   </div>
 
   <div class="mt-1">
@@ -232,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          141 字
+          219 字
         
       </span>
     
@@ -280,21 +273,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">node 建立本地服务</h1>
+            <h1 id="seo-header">Node.js 全局对象</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="https://img-blog.csdnimg.cn/2021070610464493.png" srcset="/img/loading.gif" lazyload></p>
-<blockquote>
-<p> 安装 <code>npm install http</code></p>
+                <blockquote>
+<p>和js一样，基本所有语法都是可以使用的。node本身就是js嘛，小区别就在于有个别部分的对象是面向浏览器的api，在node环境就<strong>不能用</strong>了，因为node是服务器端，在服务环境下新增了其他api搭配各类插件即可开发</p>
 </blockquote>
-<p><code>server.js</code>写入以下内容：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>); <span class="hljs-comment">// 引入nodeJS内置的网络传输协议http模块</span><br><span class="hljs-keyword">const</span> server = http.<span class="hljs-title function_">createServer</span>(); <span class="hljs-comment">//建立服务</span><br><span class="hljs-keyword">const</span> fs=<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>);<br><br><br><span class="hljs-comment">//指定端口号</span><br>server.<span class="hljs-title function_">listen</span>(<span class="hljs-number">9999</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server running at http://127.0.0.1:9999/&#x27;</span>);<br>&#125;);<br><span class="hljs-comment">//事件响应</span><br>server.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;request&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) &#123;<br>  <span class="hljs-comment">//设置响应的头</span><br>  response.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">200</span>,&#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>:<span class="hljs-string">&quot;text/html; charset=utf-8&quot;</span><br>  &#125;);<br>  fs.<span class="hljs-title function_">readFile</span>(<span class="hljs-string">&quot;./index.html&quot;</span>,<span class="hljs-string">&quot;utf-8&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params">err,data</span>)&#123;<br>       <span class="hljs-keyword">if</span>(err) &#123;<br>         <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;index.html loading is failed :&quot;</span>+err);<br>       &#125;<span class="hljs-keyword">else</span>&#123;<br>         response.<span class="hljs-title function_">end</span>(data);  <span class="hljs-comment">//返回index.html页面</span><br>       &#125;<br>   &#125;);<br>&#125;);<br><br></code></pre></td></tr></table></figure>
-
-<p>启动服务看看</p>
-<p><img src="https://img-blog.csdnimg.cn/20210706104919606.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://img-blog.csdnimg.cn/20210706104939857.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="filename"><a href="#filename" class="headerlink" title="__filename"></a>__filename</h1><p>表示当前正在执行的脚本的文件名。它将输出文件所在位置的绝对路径，且和命令行参数所指定的文件名不一定相同。 如果在模块中，返回的值是模块文件的路径。</p>
+<p><img src="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411231655145.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h1><p><strong>__dirname</strong> 表示当前执行脚本所在的目录。</p>
+<p><img src="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411231849313.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="process"><a href="#process" class="headerlink" title="process"></a>process</h1><p>用于描述当前Node.js 进程状态的对象，提供了一个与操作系统的简单接口。通常在你写本地命令行程序的时候，少不了要 和它打交道。</p>
+<p><img src="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411232553130.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411233132589.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chergn/pictures/main/uPic/image-20240411233910560.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -340,8 +334,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>node 建立本地服务</div>
-      <div>https://gitee.com/chergn/chergn.git/a11b74027a0a/</div>
+      <div>Node.js 全局对象</div>
+      <div>https://gitee.com/chergn/chergn.git/11f5188ebebc/</div>
     </div>
     <div class="license-meta">
       
@@ -353,7 +347,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月28日</div>
+          <div>2024年4月11日</div>
         </div>
       
       
@@ -385,9 +379,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/e60cc4788716/" title="node 实现简单爬取文字">
+                      <a href="/4c7993267f67/" title="Node.js 常用工具">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">node 实现简单爬取文字</span>
+                        <span class="hidden-mobile">Node.js 常用工具</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -395,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/f5412bf76f16/" title="node 热更新代码，无需每次重启命令">
-                        <span class="hidden-mobile">node 热更新代码，无需每次重启命令</span>
+                      <a href="/df1b3c139847/" title="前端在线浏览word、excel、ppt、pdf等文件">
+                        <span class="hidden-mobile">前端在线浏览word、excel、ppt、pdf等文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -504,7 +498,7 @@
     
       <div class="col-lg-7 mx-auto nopadding-x-md">
         <div class="container custom mx-auto">
-          <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script>
+           <script src="https://giscus.app/client.js" data-repo="chergn/giscus-component" data-repo-id="R_kgDOLrMS_Q" data-category="Announcements" data-category-id="DIC_kwDOLrMS_c4CeiL3" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async> </script> 
         </div>
       </div>
     

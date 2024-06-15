@@ -1,0 +1,100 @@
+# https://fluid-dev.github.io/hexo-fluid-docs/guide/
+
+
+
+
+custom_head: '<meta name="referrer" content="no-referrer" />'
+
+
+navbar:
+  blog_title: 美酒没故事
+  menu:
+    #  - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
+    # - { key: 'archives', link: '/archives/', icon: 'iconfont icon-books', name: '归档' }
+    - { key: 'categories', link: '/categories/', icon: 'iconfont icon-category-fill', name: '分类' }
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '关于我' }
+    - {
+      key: '开源项目',
+      icon: 'iconfont icon-stack-overflow-fill',
+      submenu: [
+        { key: 'vue2开发模板', link: 'https://gitee.com/eida/vue2-init' },
+        { key: 'uniapp开发模板', link: 'https://gitee.com/eida/uniapp-init' }
+      ]
+    }
+
+
+
+index:
+  banner_img: /img/bg/home.jpg
+  post_meta:
+    date: false
+  slogan:
+    enable: true
+    text: 记录、分享、共赢
+
+tag:
+  banner_img: /img/bg/tag.jpeg
+
+
+categorie:
+  banner_img: /img/bg/categories.jpeg
+
+
+about:
+  avatar: /img/avatar.png
+  name: "全易"
+  intro: "苟有恒，何必三更眠五更起；最无益，莫过一日曝十日寒"
+  banner_img: /img/bg/about.jpg
+  icons:
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com/chergn', tip: 'GitHub' }
+    - { class: 'iconfont icon-gitee-fill', link: 'https://gitee.com/chergn', tip: 'gitee' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/wechart.jpg'  }
+    - { class: 'iconfont icon-coffee-fill', qrcode: '/img/wechart-pay.jpg'  }
+
+
+    
+
+custom_html: '
+  <script src="https://giscus.app/client.js"
+    data-repo="chergn/giscus-component"
+    data-repo-id="R_kgDOLrMS_Q"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLrMS_c4CeiL3"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light_protanopia"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+'
+
+
+footer:
+  content: '
+    <div style="margin-top:100px">
+      <span>quanyi</span>
+      <i class="iconfont icon-love"></i>
+      <span>hexo</span>
+    </div>
+  '
+
+
+
+post:
+  comments:
+    enable: true
+    type: giscus
+  meta:
+    date: false
+
+
+
+giscus:
+  enable: true
+

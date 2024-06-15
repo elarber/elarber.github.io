@@ -57,10 +57,10 @@ about:
 
 custom_html: '
   <script src="https://giscus.app/client.js"
-    data-repo="chergn/giscus-component"
-    data-repo-id="R_kgDOLrMS_Q"
+    data-repo="chergn/chergn.github.io"
+    data-repo-id="R_kgDOMJoFFQ"
     data-category="Announcements"
-    data-category-id="DIC_kwDOLrMS_c4CeiL3"
+    data-category-id="DIC_kwDOMJoFFc4CgGb8"
     data-mapping="title"
     data-strict="0"
     data-reactions-enabled="1"

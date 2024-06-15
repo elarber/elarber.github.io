@@ -19,7 +19,7 @@
     <meta name="description" content="评论存储仓可以是你的博客项目的(github)仓库，也可以单独新建一个评论存储仓库。我的博客项目在gitee上，就以新建存储仓为例： 使用Discussions评论系统必须开通Discussions模块！ 安装giscus插件https:&#x2F;&#x2F;github.com&#x2F;apps&#x2F;giscus 然后关闭你的安装页面即可 生成giscus配置代码在https:&#x2F;&#x2F;giscus.app&#x2F;zh-CN   配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo接入github Discussions评论系统">
-<meta property="og:url" content="https://gitee.com/chergn/chergn.git/9847af0316a6/index.html">
+<meta property="og:url" content="https://github.com/chergn/chergn.git/9847af0316a6/index.html">
 <meta property="og:site_name" content="美酒没故事">
 <meta property="og:description" content="评论存储仓可以是你的博客项目的(github)仓库，也可以单独新建一个评论存储仓库。我的博客项目在gitee上，就以新建存储仓为例： 使用Discussions评论系统必须开通Discussions模块！ 安装giscus插件https:&#x2F;&#x2F;github.com&#x2F;apps&#x2F;giscus 然后关闭你的安装页面即可 生成giscus配置代码在https:&#x2F;&#x2F;giscus.app&#x2F;zh-CN   配置">
 <meta property="og:locale" content="zh_CN">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -168,7 +168,7 @@
                   
                   <a class="dropdown-item" href="https://gitee.com/eida/vue2-init" target="_self">
                     
-                    <span>vue2项目初始化开发模板</span>
+                    <span>vue2开发模板</span>
                   </a>
                 
                   
@@ -176,7 +176,7 @@
                   
                   <a class="dropdown-item" href="https://gitee.com/eida/uniapp-init" target="_self">
                     
-                    <span>uniapp项目初始化开发模板</span>
+                    <span>uniapp开发模板</span>
                   </a>
                 
               </div>
@@ -284,7 +284,7 @@
                 <p><img src="https://img-blog.csdnimg.cn/direct/2bf1331ec09e46b6a0f64f12542ebf1c.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="评论存储仓"><a href="#评论存储仓" class="headerlink" title="评论存储仓"></a>评论存储仓</h1><p>可以是你的博客项目的(github)仓库，也可以单独新建一个评论存储仓库。<br>我的博客项目在gitee上，就以新建存储仓为例：<br><img src="https://img-blog.csdnimg.cn/direct/a2ce931c28904f88abea6c07db4748cc.png" srcset="/img/loading.gif" lazyload></p>
 <p>使用Discussions评论系统<strong>必须开通Discussions</strong>模块！<br><img src="https://img-blog.csdnimg.cn/direct/febf115919ae4318893ec10c4c985e3f.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="安装giscus插件"><a href="#安装giscus插件" class="headerlink" title="安装giscus插件"></a>安装giscus插件</h1><p><a target="_blank" rel="noopener" href="https://github.com/apps/giscus">https://github.com/apps/giscus</a><br><img src="https://img-blog.csdnimg.cn/direct/c83f23757f3d4510b671e864bdd7d016.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="安装giscus插件"><a href="#安装giscus插件" class="headerlink" title="安装giscus插件"></a>安装giscus插件</h1><p><a href="https://github.com/apps/giscus">https://github.com/apps/giscus</a><br><img src="https://img-blog.csdnimg.cn/direct/c83f23757f3d4510b671e864bdd7d016.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://img-blog.csdnimg.cn/direct/d750cceb5e204ba4a91ab8839715ace3.png" srcset="/img/loading.gif" lazyload><br>然后关闭你的安装页面即可</p>
 <h1 id="生成giscus配置代码"><a href="#生成giscus配置代码" class="headerlink" title="生成giscus配置代码"></a>生成giscus配置代码</h1><p>在<a target="_blank" rel="noopener" href="https://giscus.app/zh-CN">https://giscus.app/zh-CN</a></p>
 <p><img src="https://img-blog.csdnimg.cn/direct/88175a2d805b40f8969c73c8ecdabe29.png" srcset="/img/loading.gif" lazyload></p>
@@ -354,7 +354,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>hexo接入github Discussions评论系统</div>
-      <div>https://gitee.com/chergn/chergn.git/9847af0316a6/</div>
+      <div>https://github.com/chergn/chergn.git/9847af0316a6/</div>
     </div>
     <div class="license-meta">
       
@@ -408,8 +408,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/6d0a34c28626/" title="Web Components 原生开发使html组件化模块化">
-                        <span class="hidden-mobile">Web Components 原生开发使html组件化模块化</span>
+                      <a href="/9b78ab5fd249/" title="html HTML5语义化标签">
+                        <span class="hidden-mobile">html HTML5语义化标签</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
